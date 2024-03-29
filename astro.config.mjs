@@ -24,7 +24,7 @@ export default defineConfig({
    tailwind({
      // Example: Provide a custom path to a Tailwind config file
      configFile: fileURLToPath(new URL('./tailwind.config.cjs', import.meta.url)),
-     applyBaseStyles: true,
+     applyBaseStyles: false,
   }
   )],
   site: 'https://castelll0009.github.io',
