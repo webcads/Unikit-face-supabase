@@ -27,5 +27,7 @@ export default defineConfig( {
 	},
 	plugins: [		
 	],
-	integrations: [tailwind()],
+	integrations: [  tailwind({
+		applyBaseStyles: false,
+	  }),],
 })
