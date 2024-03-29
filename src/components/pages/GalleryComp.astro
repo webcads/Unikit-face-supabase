@@ -1,0 +1,48 @@
+---
+// GalleryComp.astro
+import fetchApi from '../../lib/strapi'
+import type Gallery from '../../interfaces/gallery'
+import CardPicture from '../resources/CardPicture.astro'
+
+const pictures = await fetchApi<Gallery[]>({
+  endpoint: 'pictures?populate=image', // the content type to fetch
+  wrappedByKey: 'data', // the key to unwrap the response
+});
+
+const reversedPictures = pictures.reverse();
+console.log("/////////////fetching pictures///////////// "+ pictures);
+const imagesPerBlock = 2;
+---
+
+<section class="section flex flex-col md:flex-row flex-wrap gap-3 md:gap-5 justify-center items-center" style="background: white;">    
+
+  <h1 class="text-4xl text-left min-w-full md:text-7xl dark:text-white max-w-lg">Birdwatching Tours and Experiences</h1>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+    {reversedPictures.map((picture, index) => {
+       
+      if (index % imagesPerBlock === 0) {
+        const nextPicture = reversedPictures[index + 1];
+
+        return (
+          <div class="grid gap-4">            
+            <CardPicture
+              img1={picture.attributes.image.data?.attributes.url}
+              img1id={picture.id}
+              img2={nextPicture?.attributes.image.data?.attributes.url}
+              img2id={nextPicture?.id}
+              title={picture.attributes.title}
+              ph={picture.attributes.ph}
+            ></CardPicture>
+          </div>
+        );
+      } else {
+        return null;
+      }
+    })}
+  </div>
+
+
+  
+</section>
+

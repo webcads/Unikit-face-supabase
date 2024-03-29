@@ -1,0 +1,67 @@
+---
+import { services } from '../../config/services.json'
+import Icon from '../../components/Icon.astro'
+console.log(services)
+---
+
+<div id="services" class="section">
+    <span class="bg-current flex justify-center align-middle">
+        <h6 class="text-5xl font-bold  text-center  pb-2 bg-transparent text-white  ">Servicios</h6>
+    </span>
+    <div class="flex flex-col ">
+        <!-- wrapper services -->
+        <div class="flex flex-col md:flex-row  justify-center   p-20 gap-16 md:gap-0" style="align-items: center;">
+            {
+                services.map((service) => (
+                <div >
+                    <a type="button" href={service.link} class="  p-9 pt-6 m-4 border border-gray-200  shadow dark:bg-gray-800 dark:border-gray-700 hover:border-8 hover:border-cyan-300   " style=" border-radius: 50px; max-width: 200px; background-color: #e0e0e0; min-width: 160px;  max-width: 160px; min-height: 150px; max-height: 150px;">                    
+                        <Icon name={service['name-icon']}  ></Icon>                                                                              
+                    </a>
+                    
+                    <a href="#" >
+                        <h5 class="mt-10 text-2xl font-semibold tracking-tight  bg-secondary text-center text-white">{service.title}</h5>
+                        <h5 class=" text-2xl font-semibold tracking-tight   text-center ">{service.title_under}</h5>
+                    </a>
+                </div>
+                
+                
+                ))                        
+                
+            }
+        </div>
+        
+        <div class="text-secondary dark:text-primary">
+            <h3>En CAD™, potenciamos tu marca con un ciclo de ingresos sin límites:</h3>
+            <br>
+            <ol>
+                <li>
+                    <strong>Atracción Impactante:</strong> Con anuncios estratégicos, capturamos la atención y guiamos a tu audiencia hacia tu página web.
+                </li>
+                <br>
+                <li>
+                    <strong>Webs Personalizadas:</strong> Diseñamos cada elemento para cautivar, ilustrar y dejar una impresión duradera.
+                </li>
+                <br>
+                <li>
+                    <strong>Ventas Automatizadas:</strong> Tu web no solo enamora, sino que también cierra ventas de forma automática, creando un ciclo de éxito continuo. Descubre cómo transformamos clicks en resultados con CAD™.
+                </li>
+        </div>
+       
+        </ol>
+        
+        
+    </div>
+  
+    <div id="miVideo" class="pt-10 pb-10 flex flex-col items-center justify-center bg-transparent">
+        <video autoplay loop width="300" height="315" muted controls style="border-radius: 2% ">
+            <source src="/tiktok.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+        </video>
+        <a class="bg-[#fe2c55] text-white p-2 mt-1 rounded-lg" href="https://www.tiktok.com/@webcads.com"> Abrir Tiktok</a>
+    </div>
+    
+
+    
+</div>
+
+

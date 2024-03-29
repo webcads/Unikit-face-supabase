@@ -1,0 +1,194 @@
+---
+import Layout from "../layouts/layout.astro";
+import AdsAnimation from "../components/pages/AdsAnimation.astro";
+import CadAds from "../components/pages/CadAds.astro";
+import PricingCard from "../components/pages/PricingCard.astro";
+import CADTalking from "../components/pages/CADTalking.astro";
+---
+
+<Layout
+    title="Ads"
+    subtitle="Anuncios y publicidad, asesorias, ingresos, ventas, catalogo productos, redes sociales, SEO, google ads "
+>
+    <section class="section text-secondary dark:text-primary">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl pb-5 md:pb-10">
+            Ads, Marketing anuncios paga publicidad
+        </h1>
+
+        <p>
+            En CAD, estamos aquí para ayudarte a establecer un ciclo de ingresos
+            infinitos. 
+            <br>
+            <br>
+            Comenzando con la inversión en anuncios en plataformas
+            como Facebook, Instagram, YouTube o Google Ads, lograrás una rápida
+            visibilidad ante tus clientes.
+            <br />
+            <br />
+            Ya sea que estés iniciando un nuevo negocio o que tu empresa ya este funcionando, si tu sitio web es diseñado por nosotros, contará
+            con la arquitectura necesaria para posicionarse más rápidamente que otros.
+           
+        </p>
+    </section>
+
+    <section class="section">
+        <div class="pt-10">
+            <h2
+                class="text-2xl md:text-5xl lg:text-3xl xl:text-3xl text-secondary pb-5 md:pb-10 dark:text-primary"
+            >
+                En cuanto al ciclo infinito de ingresos el proceso es sencillo
+            </h2>
+            <ol class="text-secondary dark:text-primary">
+                <li>1. Inviertes en anuncios para aumentar la visibilidad.</li>
+                <li>
+                    2. Atraes a los clientes a tu sitio web o tienda en línea.
+                </li>
+                <li>
+                    3. Realizas ventas para recuperar la inversión y reinicias
+                    el ciclo.
+                </li>
+            </ol>
+
+            <CADTalking color="#fabd00" />
+        </div>
+    </section>
+
+    <!-- PANES , PRECIO Y CARACTERISTICAS -->
+    <section class="section p-10 flex flex-col justify-center" style="">
+        <h2
+            class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-secondary pb-5 md:pb-10 dark:text-primary"
+        >
+            Planes, Precios de Compra
+        </h2>
+        <div
+            class="flex-1 flex flex-col flex-wrap md:flex-wrap lg:flex-nowrap pt-10 pb-10 md:flex-row gap-16 items-center justify-center"
+        >
+         
+        <PricingCard
+        title="Cheaper market"
+        category="Ads"
+        price="499.00"
+        duration="3 meses"
+        availableItems={[
+            "Asesoria basica para marketing y publicidad",
+            "Creacion de recursos para Marketing y social Media",     
+        ]}
+        unavailableItems={[      
+            
+        ]}
+    />
+
+            <PricingCard
+                title="Recomended SEO"
+                category="Ads"
+                price="639.00"
+                duration="6 meses"
+                availableItems={[
+                    "Asesoria creacion y publicacion de anuncios",
+                    "Investigación palabras claves",
+                    "Optimizacion del sitio web.",
+                    "campaña SEO para tu pagina web.",                                       
+                    "Construcción del enlaces(link Building)",                    
+                    "Garantia aumento Autoridad de dominio en 6 meses",
+                ]}
+                unavailableItems={[
+                    "Creacion de contenidos de calidad, Media, viralizacion, Asociación.",
+                    "Contenido de publicidad y marketing",
+                    
+                ]}
+            />
+            <PricingCard
+                title="Premium CAD(Code, Delta, Ads) Marketing SEO"                
+                category="Ads"
+                price="2559.00"
+                duration="Selling Page"
+                availableItems={[
+                    "Landing(pagina Aterrizaje)",
+                    "Diseño Personalizado  Market",
+                    "Navegacion basica, link a whatsapp, redes",                                    
+                    "Gestor de contenido Interfaz Admin o CMS",
+                    "Garantia de cambios y ajustes 1 año",
+                    "Asesoria creacion y publicacion de anuncios",
+                    "campaña SEO para tu pagina web.",     
+                    "Branding publicidad y marketing",
+                    "Construcción del enlaces(link Building)",                    
+                    "Garantia aumento Autoridad de dominio en 6 meses",
+                ]}
+                unavailableItems={[
+                    // Elementos no disponibles para Premium CAD
+                ]}
+            />
+        </div>
+    </section>
+
+    <!-- section diccionario SEO -->
+    <section class="section text-secondary dark:text-primary">
+        <h2 class="font-semibold text-3xl">Diccionario SEO</h2>
+        <p>Aqui encontraras los terminos descritos en los planes para las Campañas SEO, Marketing & Publicidad.</p>
+
+        <ol class="flex flex-col pt-12 gap-10">
+            <li>
+              <strong>Contenido de Calidad:</strong>
+              <p>Proporcionamos contenido valioso y relevante que responde a las preguntas y necesidades de nuestros usuarios. Explore nuestros artículos y recursos para obtener información útil y actualizada.</p>
+            </li>
+        
+            <li>
+              <strong>Experiencia del Usuario (UX):</strong>
+              <p>Nos esforzamos por brindar una experiencia de usuario excepcional. Navegue fácilmente por nuestro sitio web, que está optimizado para ser rápido y fácil de usar.</p>
+            </li>
+        
+            <li>
+              <strong>Optimización para Dispositivos Móviles:</strong>
+              <p>Acceda a nuestro contenido desde cualquier lugar utilizando dispositivos móviles. Nuestro sitio web está completamente optimizado para brindar una experiencia fluida en smartphones y tabletas.</p>
+            </li>
+        
+            <li>
+              <strong>SEO Técnico:</strong>
+              <p>Mantenemos los aspectos técnicos de nuestro sitio web en óptimas condiciones. Desde la estructura del sitio hasta la velocidad de carga, nos esforzamos por garantizar un rendimiento técnico sólido.</p>
+            </li>
+        
+            <li>
+              <strong>Enlaces de Calidad:</strong>
+              <p>Valoramos la calidad sobre la cantidad en nuestra estrategia de construcción de enlaces. Colaboramos con sitios relevantes y confiables para proporcionar a nuestros usuarios enlaces útiles y relacionados.</p>
+            </li>
+          </ol>
+
+          <h2 class="text-3xl font-semibold pb-2 pt-10">Construcción de Enlaces (Link Building) en SEO</h2>
+          <p>La construcción de enlaces es una estrategia de SEO que se enfoca en obtener enlaces de calidad desde otros sitios web a tu propio sitio. El objetivo es mejorar la visibilidad en los motores de búsqueda y aumentar la autoridad del dominio.</p>
+          <p>Los motores de búsqueda, como Google, consideran los enlaces entrantes como votos de confianza y relevancia. Cuantos más enlaces de calidad apunten a tu sitio, es probable que tu sitio sea considerado más importante y tenga un mejor posicionamiento en los resultados de búsqueda.</p>
+        
+          <h3 class="text-xl font-semibold pt-5 pb-5">Tácticas Comunes de Construcción de Enlaces:</h3>
+          
+          <ol class="flex flex-col gap-10">
+            <li>
+              <strong>Creación de Contenido de Calidad:</strong>
+              <p>Publicar contenido valioso y relevante en tu sitio puede atraer naturalmente enlaces de otros sitios que encuentren tu contenido útil.</p>
+            </li>
+        
+            <li>
+              <strong>Outreach:</strong>
+              <p>Contactar a otros sitios web, blogs o empresas para sugerir la posibilidad de intercambiar enlaces o colaborar en contenidos.</p>
+            </li>
+        
+            <li>
+              <strong>Participación en Comunidades:</strong>
+              <p>Participar activamente en comunidades en línea y foros relevantes para tu industria puede ayudar a establecer tu presencia y generar enlaces de manera natural.</p>
+            </li>
+        
+            <li>
+              <strong>Creación de Contenido Viral:</strong>
+              <p>Crear contenido que sea compartible y potencialmente viral puede atraer enlaces de manera orgánica a medida que más personas lo comparten.</p>
+            </li>
+        
+            <li>
+              <strong>Testimonios y Reseñas:</strong>
+              <p>Proporcionar testimonios o reseñas para productos o servicios de otras empresas puede generar enlaces de retroceso.</p>
+            </li>
+          </ol>
+          
+          
+        </section>
+                      
+
+    </section>
+</Layout>

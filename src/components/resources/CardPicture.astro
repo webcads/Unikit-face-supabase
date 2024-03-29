@@ -1,0 +1,72 @@
+---
+// CardPicture.astro
+
+import Modal from '../resources/Modal.astro'
+
+interface Props {
+  img1?: string;
+  img1id?: number;
+  img2?: string;
+  img2id?: number;
+  title?: string;
+  category?: string;
+  ph?: string;
+}
+const { img1, img1id, img2,img2id, title, ph, category } = Astro.props;
+// Asegúrate de que img1id e img2id sean strings o undefined
+const img1IdString = img1id !== undefined ? img1id.toString() : undefined;
+const img2IdString = img2id !== undefined ? img2id.toString() : undefined;
+
+---
+<style>
+  .relative {
+    transition: transform 0.1s ease-out;
+  }
+
+    .relative:hover > .absolute {
+  opacity: 100;
+}
+</style>
+<style>
+    .relative:hover > .absolute {
+      opacity: 100;
+    }
+  
+    .relative:hover {
+        transform: scale(1.02) translateY(-2px);
+    }
+  </style>
+
+    <!-- show the modal conponent -->
+  <a class="text-left relative cursor-pointer" type="button" data-drawer-target={`drawer-modal${img1IdString}`} data-drawer-show={`drawer-modal${img1IdString}`}>
+    <div class="relative">
+      <img class="h-auto max-w-full rounded-lg" src={img1} alt="" />
+      <span class="absolute w-full h-full rounded-lg text-gray-100 left-0 bottom-0 bg-black/40 opacity-0 hover:opacity-100" style="backdrop-filter: blur(0px)">
+        <div class="absolute bottom-0 left-0 p-2 md:p-3 text-xs md:text-base " style="">
+          <p class="capitalize">{title}</p>
+          <p class="capitalize">by: {ph}</p>
+        </div>
+      </span>
+    </div>
+    <Modal img={img1} id={img1IdString}></Modal>
+  </a>
+       
+  <a class="text-left relative cursor-pointer" type="button" data-drawer-target={`drawer-modal${img2IdString}`} data-drawer-show={`drawer-modal${img2IdString}`}>
+    <div class="relative">
+      <img class="h-auto max-w-full rounded-lg" src={img2} alt="" />
+      <span class="absolute w-full h-full rounded-lg text-gray-100 left-0 bottom-0 bg-black/40 opacity-0 hover:opacity-100" style="backdrop-filter: blur(0px)">
+        <div class="absolute bottom-0 left-0 p-2 md:p-3 text-xs md:text-base " style="">
+          <p class="capitalize">{title}</p>
+          <p class="capitalize">by: {ph}</p>
+        </div>
+      </span>
+    </div>
+    <Modal img={img2} id={img2IdString}></Modal>
+  </a>
+       
+   
+   
+
+
+
+

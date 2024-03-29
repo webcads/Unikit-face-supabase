@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navegación con Pestañas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      background-color: #ddd;
+      padding: 10px;
+    }
+
+    nav a {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+      background-color: #f2f2f2;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+    }
+
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Sitio Web</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showTab('hombres')">Ropa para Hombres</a>
+    <a href="#" onclick="showTab('mujeres')">Ropa para Mujeres</a>
+  </nav>
+
+  <section id="hombres" class="active">
+    <h2>Ropa para Hombres</h2>
+    <!-- Contenido de la sección para hombres -->
+  </section>
+
+  <section id="mujeres">
+    <h2>Ropa para Mujeres</h2>
+    <!-- Contenido de la sección para mujeres -->
+  </section>
+
+  <script>
+    function showTab(tabId) {
+      // Ocultar todas las secciones
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+
+      // Mostrar la sección correspondiente al tab clickeado
+      const activeSection = document.getElementById(tabId);
+      activeSection.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

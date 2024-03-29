@@ -1,0 +1,292 @@
+---
+// Header.astro
+import clientData from "../config/clientData.json";
+import MenuCotizar from "./resources/MenuCotizar.astro";
+import IconoCotizar from "../components/icons/IconoCotizar.astro";
+const toursData = [
+  { url: "/", label: "Inicio" },
+  { url: "/services", label: "Servicios" },
+  { url: "/web", label: "Webs" },
+  { url: "/design", label: "Diseño" },
+  { url: "/ads", label: "Publicidad" },
+  { url: "/about_us", label: "Acerca de" },
+  // {"url": "/gallery", "label": "Gallery"},
+  // {"url": "/testimonials", "label": "Testimonials"}
+];
+---
+
+<style>
+  header {
+    transition: all 0.2s;
+    outline: none;
+    border: none;
+  }
+
+  .mobile-menu-container {
+    transition: all 2s;
+  }
+
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+
+  }
+
+  /* Media query for desktop devices */
+  @media (min-width: 768px) {
+
+  }
+</style>
+<MenuCotizar />
+
+<header
+  transition:persist
+  class="section z-40  md:z-40 md:justify-end  to-transparent backdrop-filter bottom-0 md:bottom-auto min-w-full md:top-0 md:flex justify-between   items-center mx-auto container md:pl-10 md:pr-10 fixed border-gray-200   dark:border-gray-700"
+  style="padding: 0px; !important; background: #dadada; !important"
+>
+  <!--Header cabezera apartados opciotns Logo -->
+  <div class="flex flex-row w-full items-center justify-center p-4 md:pl-10 md:p-4 ">
+    <!-- nombre marca nombre  web -->
+    <a
+    href="/"
+    class="flex-1 uppercase justify-start text-xl md:block md:text-xl  text-secondary dark:text-primary text-start"
+    
+  >
+    {clientData.web_name}
+  </a>
+    <span class="flex-1 justify-center hidden md:block"></span>
+    <button
+      id="cotizarbutton"
+      class="uppercase md:hidden p-2 text-secondary bg-transparent focus:ring-0 focus:outline-none font-medium rounded-none text-sm mb-2 dark:bg-transparent outline-none dark:text-primary dark:focus:ring-blue-800"
+      type="button"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1.5em"
+        height="1.5em"
+        viewBox="0 0 48 48"
+        ><g
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="4"
+          ><path
+            d="M37 17V37M11 37V44H37V37M11 37H4V17C4 14 6 10.5 9 8C12 5.5 18 4 18 4H30C30 4 36 5.5 39 8C42 10.5 44 14 44 17V37H37M11 37V17"
+          ></path><path
+            d="M30 4C30 7.31371 27.3137 10 24 10C20.6863 10 18 7.31371 18 4"
+          ></path></g
+        ></svg
+      >
+    </button>
+  
+
+    <div class="flex-1 flex  justify-end ">
+      <!-- clothes button -->
+      <button
+        id="cotizarbutton"
+        class="hidden  uppercase p-2 text-secondary bg-transparent focus:ring-0 focus:outline-none font-medium rounded-none text-sm mb-2 dark:bg-transparent outline-none dark:text-primary dark:focus:ring-blue-800"
+        type="button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1.5em"
+          height="1.5em"
+          viewBox="0 0 48 48"
+          ><g
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="4"
+            ><path
+              d="M37 17V37M11 37V44H37V37M11 37H4V17C4 14 6 10.5 9 8C12 5.5 18 4 18 4H30C30 4 36 5.5 39 8C42 10.5 44 14 44 17V37H37M11 37V17"
+            ></path><path
+              d="M30 4C30 7.31371 27.3137 10 24 10C20.6863 10 18 7.31371 18 4"
+            ></path></g
+          ></svg
+        >
+      </button>
+
+      <!--Icons buttons   Dark and Menu-->
+      <div class="flex">
+        <button
+          type="button"
+          data-collapse-toggle="navbar-search"
+          aria-controls="navbar-search"
+          aria-expanded="false"
+          class="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 20 20"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+          </svg>
+          <span class="sr-only">Search</span>
+        </button>
+
+        <button
+          id="theme-toggle"
+          type="button"
+          class="p-2 md:-mt-2 ml-2 bg-transparent text-secondary dark:text-white dark:text-gray-400 focus:outline-none focus:ring-0 dark:focus:outline-none rounded-lg text-sm"
+        >
+          <svg
+            id="theme-toggle-dark-icon"
+            class="hidden w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path></svg
+          >
+          <svg
+            id="theme-toggle-light-icon"
+            class="hidden w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"></path></svg
+          >
+        </button>
+
+        <a
+          data-collapse-toggle="navbar-solid-bg"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-solid-bg"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"></path>
+          </svg>
+        </a>
+        <a href="/" class="dark:text-white text-secondary" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><rect width="4" height="6" x="10" y="14" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.9s" dur="0.15s" values="0;0.3"/></rect><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="21" stroke-dashoffset="21" d="M5 21H19"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="21;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M5 21V8M19 21V8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="15;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M9 21V13H15V21"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="24;0"/></path><path stroke-dasharray="26" stroke-dashoffset="26" d="M2 10L12 2L22 10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="26;0"/></path></g></svg>
+        </a>
+        
+      </div>
+      <!-- click action lateral menu contact us -->
+      <!-- search  -->
+      <div class="mobile-menu-container"></div>
+
+      <nav class="border-gray-200">
+        <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+          <ul
+            class="flex flex-col items-center gap-2 m-5 md:m-0 font-medium rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent md:dark:bg-transparent dark:border-gray-700"
+          >
+          
+            <li>
+              <div class="relative hidden md:block">
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 text-secondary dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"></path>
+                  </svg>
+                  <span class="sr-only">Search icon</span>
+                </div>
+                <input
+                  type="text"
+                  id="search-navbar"
+                  class="block w-full p-2 ps-10 text-xs text-gray-900 border border-secondary/20 rounded-[3px] bg-transparent focus:ring-blue-500 focus:border-blue-500 dark:bg-transparent dark:border-white/50 dark:placeholder-gray-400 dark:text-silver dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:placeholder-silver placeholder-secondary"
+                  placeholder="SEARCH"
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  function hiddeNavbar() {
+    var header = document.querySelector("header");
+    var lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      var st = window.pageYOffset || document.documentElement.scrollTop;
+      var isMobile = window.innerWidth <= 768;
+
+      if (st > lastScrollTop) {
+        // Desplazamiento hacia abajo
+        header.style.transform = isMobile
+          ? "translateY(100%)"
+          : "translateY(-100%)";
+      } else {
+        // Desplazamiento hacia arriba
+        header.style.transform = isMobile ? "translateY(0)" : "translateY(0%)";
+      }
+
+      lastScrollTop = st;
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    hiddeNavbar();
+  });
+  document.addEventListener("astro:after-swap", hiddeNavbar);
+</script>
+
+<script is:inline>
+  function toggleMenuCotizar() {
+    const cotizarButton = document.getElementById("cotizarbutton");
+    const drawerContact = document.getElementById("drawer-contact");
+    cotizarButton.addEventListener("click", function () {
+      const currentTransform = drawerContact.style.transform;
+
+      if (currentTransform === "translateX(-100%)") {
+        // Si el menú está cerrado, ábrelo
+        drawerContact.style.transform = "translateX(0%)";
+        cotizarButton.classList.remove("active");
+      } else {
+        // Si el menú está abierto, ciérralo
+        drawerContact.style.transform = "translateX(-100%)";
+
+        cotizarButton.classList.add("active");
+      }
+    });
+  }
+  window.addEventListener("DOMContentLoaded", function () {
+    toggleMenuCotizar();
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    toggleMenuCotizar();
+  });
+</script>

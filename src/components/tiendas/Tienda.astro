@@ -1,0 +1,34 @@
+---
+import Itemtienda from "../../components/tiendas/Itemtienda.astro"
+interface Props {
+    listaTiendas: string[];      
+    index: number;
+}
+const { listaTiendas, index } =Astro.props;
+
+// console.log("TIENDA COMPONENTE LISTA TIENDAS: " +  JSON.stringify(listaTiendas) +" TITULO: "+listaTiendas.titulo);
+---
+
+
+<!-- <h5 class="uppercase m-2 text-center w-full bg-secondary dark:bg-primary text-primary dark:text-secondary">{sectionTitle}</h5> -->
+    <div class="flex-row md:flex-row flex-wrap gap-10  flex justify-between">
+        <!-- {listaTiendas.map((tienda) => (       -->
+            <a
+    href="#"
+    class={`bg-black relative max-w-[1920px] w-full h-[540px] flex flex-col items-center shadow ${index  % 1 === 0 ? 'md:flex-row' : 'md:flex-row-reverse' }`}
+>         
+            <Itemtienda                                               
+                imgBanner={listaTiendas.imagen_portada}
+                imgLogo={listaTiendas.imagen_logo}   
+                title={listaTiendas.titulo} 
+                subtitle={listaTiendas.slogan}                               
+                item1={listaTiendas.destacado1}
+                item2={listaTiendas.destacado2}
+                categorias={listaTiendas.categorias}
+            />
+        </a>
+                
+            <span> </span>
+        <!-- ))}                             -->
+    </div>   
+

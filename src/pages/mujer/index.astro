@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/layout.astro";
+import clientData  from '../../config/clientData.json'
+
+//components
+
+import About from '../../components/landing/About.astro';
+import Cover from "../../components/landing/Cover.astro";
+import Hero from "../../components/landing/Hero.astro";
+import Tours from "../../components/landing/Tours.astro";
+import Team from "../../components/landing/Team.astro";
+import CustomizeTours from "../../components/landing/CustomizeTours.astro";
+import Testimonials from "../../components/landing/Testimonials.astro";
+import type { Image } from "astro:assets";
+import Services from "../../components/landing/Services.astro";
+import CardContact from "../../components/pages/CardContact.astro";
+
+---
+
+<Layout title={clientData.web_name} subtitle={clientData.subtitle}  >		
+	<h1 style="font-size: 0px; opacity: 0;">CAD: Webs Disign Ads  Marketing Publicidad Branding </h1> <!--just one h1 TIP seo  -->	
+	<Cover 
+	imgPc="/cover_women_pc.webp"
+	imgMobil="/cover_women.jpg" />		
+		
+	<CardContact></CardContact>	
+</Layout>

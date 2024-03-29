@@ -1,0 +1,26 @@
+---
+import FormCustomize from './FormCustomize.astro'
+import SectionTitle from '../resources/SectionTitle.astro';
+import CoverMountainsSunrise from '../icons/CoverMountainsSunrise.astro';
+---    
+<section id="customize-tours" class="relative section items-center h-fit min-h-screen flex flex-col  justify-center align-middle  p-10 md:p-20  text-left rounderd-xl  md:min-h-fit" 
+style=" background: linear-gradient(359deg,  #f8f8f8 10%,  #fff8de  70%);" >
+
+<SectionTitle title="Customize your Tour" subtitle="Getting Ready" ></SectionTitle>  
+
+
+              
+            <!--  Cutomize yout tour title tour left side-->
+        <article class="flex-1 bg-transparent z-40  relative" style="max-width: 400px;" >                                                                       
+            <FormCustomize ></FormCustomize>
+          </article> 
+
+    
+     <!-- CoverMountains positioned at the bottom edge -->
+     <span class="absolute bottom-0 left-0 right-0 z-10">
+      <CoverMountainsSunrise></CoverMountainsSunrise>
+    </span>
+      
+</section>
+
+  

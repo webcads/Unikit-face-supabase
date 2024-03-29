@@ -1,0 +1,192 @@
+---
+import fetchApi from "../../lib/strapi";
+import type Tour from "../../interfaces/tour";
+import Layout from "../../layouts/layout.astro";
+import SectionTitle from "../../components/resources/SectionTitle.astro";
+import CardDay from "../../components/resources/CardDay.astro";
+import CardInventario from "../../components/resources/CardInventario.astro";
+import GalleryCompTours from "../../components/pages/GalleryCompTours.astro";
+import CardTourDetails from "../../components/pages/CardTourDetails.astro";
+import CardTourDetailsOnly from "../../components/pages/CardTourDetailsOnly.astro";
+import Btn from "../../components/resources/Btn.astro";
+
+const { slug } = Astro.params;
+
+let tour: Tour;
+
+try {
+	tour = await fetchApi<Tour>({
+		endpoint: "tours?populate=image,days,inventario,pax_and_prices",
+		wrappedByKey: "data",
+		wrappedByList: true,
+		query: {
+			"filters[slug][$eq]": slug || "",
+		},
+	});
+} catch (error) {
+	return Astro.redirect("/404");
+}
+// console.log("ID tour"+ tour.id)
+console.log("fetch slug tour " + tour);
+---
+
+<Layout title="Tour" subtitle={tour.attributes.title}>
+	<h1 class="z-50 m-0" style="font-size: 0px;">{tour.attributes.title}</h1>
+	<section
+		class="p-10 md:p-20 section gap-5 flex flex-col md:flex-row justify-around"
+		style="background: white;"
+	>
+		<CardTourDetails tourAttributes={tour.attributes} tourId={tour.id} />
+
+		<!-- /////////////// section days and inventory ////////////////////////////////////////////// -->
+		<!-- cover  cards -->
+		<div class="flex flex-col max-w-xl min-w-xl gap-5 -mt-5 items-start">
+			<!-- card days  -->
+			<a class="flex-1" href="#section-day">
+				<div
+					class="p-5 relative max-h-96 min-h-96 overflow-hidden max-w-sm min-w-72 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+					style="width: 100%;"
+				>
+					<div
+						class="absolute min-w-full bottom-0 right-0 p-2 text-left z-10 bg-white dark:bg-gray-800"
+						style=""
+					>
+						<Btn
+							href="#section-day"
+							att=" py-1 text-gray-500  bg-white dark:bg-gray-800 "
+						/>
+					</div>
+					<SectionTitle title="Day Plainer" subtitle="" p="pb-5" />
+					{
+						tour.attributes.days?.data ? (
+							<CardDay
+								array={tour.attributes.days.data}
+								lineClamp="1"
+								textSize="text-xs"
+								mb="6"
+							/>
+						) : (
+							<p>No day items available</p>
+						)
+					}
+				</div>
+			</a>
+
+			<!-- card Inventory  -->
+			<a class="flex-1" href="#section-inventory">
+				<div
+					class="p-5 pb-12 relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+					style="width: 100%;"
+				>
+					<div
+						class="absolute min-w-full bottom-0 right-0 p-2 text-left z-10 rounded-b-lg bg-white dark:bg-gray-800"
+						style=""
+					>
+						<Btn
+							href="#section-inventory"
+							att=" py-1 text-gray-500  bg-white dark:bg-gray-800 "
+						/>
+					</div>
+
+					<SectionTitle title="Inventory" p="pb-5" subtitle="" />
+					{
+						tour.attributes.inventario?.data ? (
+							<CardInventario
+								arrayPax={tour.attributes.pax_and_prices.data}
+								array
+								array={tour.attributes.inventario.data}
+								lineClamp="2"
+								textSize="text-xs"
+							/>
+						) : (
+							<p />
+							// <p>No inventory items available</p>
+						)
+					}
+				</div>
+			</a>
+		</div>
+		<!-- gallery tour ////////////////////////////////// -->
+		<section class="min-w-72 min-h-full" style="min-width:40vw;">
+			<GalleryCompTours id={tour.id} numCols="2" />
+		</section>
+	</section>
+	<!-- /////////////// section tour  details  ////////////////////////////////////////////// -->
+	<section
+		id="section-tour-details"
+		class="section flex flex-row items-center justify-center"
+		style="background: white;"
+	>
+		<CardTourDetailsOnly
+			arrayPax={tour.attributes.pax_and_prices.data}
+			tourAttributes={tour.attributes}
+		/>
+	</section>
+	<!-- /////////////// cont section days and invetory  details ////////////////////////////////////////////// -->
+	<section class=" section flex flex-col md:flex-row items-start">
+		<!-- /////////////// section days ////////////////////////////////////////////// -->
+		<section
+			id="section-day"
+			class=" section  flex flex-1 flex-row items-center justify-center"
+			style="background: none !important;"
+		>
+			<div class="flex-1">
+				<div class="p-5 -mt-10" style="width: 100%;">
+					<SectionTitle
+						title="Day Plainer"
+						p="pb-10"
+						subtitle="Activities for each day"
+					/>
+					{
+						tour.attributes.days?.data ? (
+							<CardDay
+								array={tour.attributes.days.data}
+								p="pb-3"
+								maxH="50vh"
+								lineClamp="unset"
+								mb="10"
+							/>
+						) : (
+							<p>No day items available</p>
+						)
+					}
+				</div>
+			</div>
+		</section>
+		<!-- /////////////// section inventory ////////////////////////////////////////////// -->
+		<section
+			id="section-inventory"
+			class=" section  flex flex-1 flex-row items-center justify-center"
+			style="background: none !important;"
+		>
+			<div class="flex-1">
+				<div class="p-5 -mt-10" style=" width: 100%;">
+					<SectionTitle
+						title="Inventory"
+						p="pb-10"
+						subtitle="check out what's included"
+					/>
+					{
+						tour.attributes.inventario?.data ? (
+							<CardInventario
+								arrayPax={tour.attributes.pax_and_prices.data}
+								array={tour.attributes.inventario.data}
+								p="pb-3"
+								lineClamp="none"
+							/>
+							//   <CardInventario  array={tour.attributes.inventario.data} p="pb-3" lineClamp="none"></CardInventario>
+						) : (
+							<p />
+							// <p>No inventory items available</p>
+						)
+					}
+				</div>
+			</div>
+		</section>
+	</section>
+
+	<!-- gallery tour ////////////////////////////////// -->
+	<section>
+		<GalleryCompTours id={tour.id} textSize="text-6xl" numCols="3" />
+	</section>
+</Layout>

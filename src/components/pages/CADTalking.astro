@@ -1,0 +1,25 @@
+---
+interface Props {
+    color?:string
+    arrayText?: string
+} const {color,arrayText} =Astro.props;
+
+import AdsAnimation from "./AdsAnimation.astro";
+import CadAds from "./CadAds.astro";
+console.log("Color:", color);
+console.log("ArrayText:"+ arrayText);
+---
+<div class="flex flex-col md:flex-row pt-10 text-secondary dark:text-primary" >
+    <div class="flex-1 p-10 pt-5  min-w-[100%] md:min-w-[70%]" style="min-height:120px;
+    max-height: 120px;
+     ">
+        <AdsAnimation arraytext={arrayText} ></AdsAnimation>
+    </div>
+    
+    <div class="flex-1">
+        <CadAds w="100" secondary={color} h="100"></CasAds>                        
+    </div>
+    
+    
+        
+  </div>

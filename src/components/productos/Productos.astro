@@ -1,0 +1,25 @@
+---
+import Item from "./Item.astro"
+import { Image } from "astro:assets";
+interface Props {
+    sectionTitle?: string; 
+    imgMobil: string;
+    imgPc: string;
+}
+const {sectionTitle, imgMobil, imgPc } = Astro.props;
+---
+
+<section
+    class="flex section flex-col  items-center justify-center"
+    style="padding: 5.6vw !important;"
+>
+<h5 class="m-2 text-center w-full bg-secondary dark:bg-primary text-primary dark:text-secondary">{sectionTitle}</h5>
+    <div class="flex-row md:flex-row flex-wrap   flex justify-center">
+        <Item imgMobil="./public/tshirt/clas_oz1.png" title="Classic Oversize" subtitle="White t-shirt" price={80000} ></Item>   
+        <Item imgMobil="./public/tshirt/clas_oz2.png" title="Classic Oversize" subtitle="White t-shirt" price={80000}></Item>  
+        <Item imgMobil="./public/tshirt/clas_oz3.png" title="Classic Oversize" subtitle="White t-shirt" price={80000}></Item>  
+        <Item imgMobil="./public/tshirt/clas_oz4.png" title="Classic Oversize" subtitle="White t-shirt" price={80000}></Item>  
+        <Item imgMobil="./public/tshirt/clas_oz5.png" title="Classic Oversize" subtitle="White t-shirt" price={80000}></Item>                         
+    </div>
+    <!-- arrayColor={['red','white','silver']} -->
+</section>

@@ -1,0 +1,42 @@
+---
+import Carousel from '../icons/Carousel.astro'
+import FlagTitle from '../resources/FlagTitle.astro';
+import BgTours from '../resources/BgTours.astro';
+import { Button } from 'bootstrap';
+
+---
+<div id="tours" class="section pt-10 md:pt-80  relative  "  
+style=" padding-bottom: 100px; ">  
+
+  <div class="md:flex md:flex-row-reverse contents  " style="max-height: 100vh; ">
+    <span class="absolute bottom-0 left-0 right-0 z-0">
+      <BgTours></BgTours>
+    </span>
+
+    <article class="relative md:w-5/12 items-center md:items-end z-10 gap-5" 
+    style=";
+    display: flex;    
+    flex-direction: column;
+   
+    ">
+      <FlagTitle title='Main Tours' subtitle='Set Departure'/>   
+
+      <a href="/tour-list" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none hover:text-white focus:ring-blue-50 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Look tour list
+         <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+        </svg>
+    </a>                    
+      
+    </article>
+
+    <article class="flex-1  text-center flex flex-col gap-20 md:gap-1 items-center" style=" min-width: 50%; padding: 5.6vw;" >              
+      <Carousel ></Carousel>      
+    </article>
+  
+    
+  </div> 
+
+</div>
+
+

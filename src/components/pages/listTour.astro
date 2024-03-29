@@ -1,0 +1,24 @@
+---
+import fetchApi from '../../lib/strapi'
+import type Tour from '../../interfaces/tour'
+import CardTour from '../resources/CardTour.astro'
+
+const tours = await fetchApi<Tour[]>({
+  endpoint: 'tours?populate=image', // the content type to fetch
+  wrappedByKey: 'data', // the key to unwrap the response
+});
+
+
+const reversedTours = tours.reverse();
+console.log("/////////////fetching articles///////////// "+ tours);
+---
+         
+    <section class="section flex flex-col md:flex-row flex-wrap gap-10 md:gap-16 justify-center items-center " style="background: white;">
+        {reversedTours.map((tour) => (   
+            <div class="md:pt-0 pt-0">
+                <CardTour slug={tour.attributes.slug} img={tour.attributes.image.data?.attributes.url} title={tour.attributes.title} description={tour.attributes.description} ></CardTour>    
+            </div>         
+         ))}
+    </section>
+  
+

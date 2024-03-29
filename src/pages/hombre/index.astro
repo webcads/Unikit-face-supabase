@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/layout.astro";
+import clientData  from '../../config/clientData.json'
+
+// funciones
+// Importa la función
+import { getCatalogosFromSupabase } from "../../config/servicesSupabase/catalogoSupabase"
+
+//components
+
+import Cover from "../../components/landing/Cover.astro";
+import CardContact from "../../components/pages/CardContact.astro";
+import Highlights from '../../components/landing/Highlights.astro'
+// import listaProductos from "../../config/productos.json"
+import Catalogo from "../../components/Catalogo.astro"
+
+const catalogoPromise = getCatalogosFromSupabase();  
+const catalogo = await catalogoPromise;   
+---
+
+<Layout title={clientData.web_name} subtitle={clientData.subtitle}  >		
+	<h1 style="font-size: 0px; opacity: 0;">CAD: Webs Disign Ads  Marketing Publicidad Branding </h1> <!--just one h1 TIP seo  -->	
+	<Cover 
+	imgPc="/cover_men_pc.jpg"
+	imgMobil="/cover_men.jpg" />	
+	<Highlights imgMobil="/tshirt/shirt1.jpg"></Highlights>
+	<Catalogo arrayProductos={catalogo[0].product} sectionTitle={catalogo[0].titulo} ></Catalogo>		
+	<CardContact></CardContact>	
+</Layout>

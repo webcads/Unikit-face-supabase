@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/layout.astro";
+import AdsAnimation from "../components/landing/About.astro";
+import About from "../components/landing/About.astro";
+import Team from "../components/landing/Team.astro";
+import BgAbout from "../components/icons/Bg_about.astro";
+import CardContact from "../components/pages/CardContact.astro";
+
+
+---
+
+<Layout
+    title="Ads"
+    subtitle="Anuncios y publicidad, asesorias, ingresos, ventas, catalogo productos, redes sociales, SEO, google ads "
+>
+    <section class="section flex flex-col md:flex-row text-secondary dark:text-primary" style="padding: 0; padding-top: 150px;">
+       
+        <span class="flex-1">            
+            <BgAbout></BgAbout>               
+        </span>  
+        <div class="p-10 flex-1">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl pb-5 md:pb-10 ">
+                lanzador de anuncios
+            </h1>
+            <p class="pb-10">
+                Descubre nuestro servicio de Lanzador de Anuncios, donde creamos impactantes carteles y recursos publicitarios para tu negocio. Nos encargamos de colocar estratégicamente tu contenido en la red social que prefieras, maximizando tu visibilidad y atrayendo a tu audiencia objetivo.
+            </p>
+           <a href="/ads" type="button" class="w-fit text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">
+            Comprar Plan Publicitario
+         </a>
+            </div>  
+       
+    </section>
+    <CardContact></CardContact>
+ 
+</Layout>

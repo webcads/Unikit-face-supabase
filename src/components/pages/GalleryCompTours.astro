@@ -1,0 +1,82 @@
+---
+// GalleryCompTours.astro
+interface Props {
+  id?:string
+  numCols?:string
+  textSize?:string
+}
+const {id,numCols,textSize} = Astro.props;
+// Asegúrate de que img1id e img2id sean strings o undefined
+let idString = id !== undefined ? id.toString() : undefined;
+// const urlID = `tours/`+idString+'/?populate=image`
+// idString ="2";
+
+import fetchApi from '../../lib/strapi'
+import type Tour from '../../interfaces/tour'
+import type Gallery from '../../interfaces/gallery'
+import type Galleries from '../../interfaces/gallery'
+import CardPictureTour from '../resources/CardPictureTour.astro'
+
+
+const tour = await fetchApi<Galleries[]>({
+// const tour = await fetchApi<Gallery[]>({
+  // const tour = await fetchApi<Tour[]>({
+  endpoint: `tours/${idString}?populate[galleries][populate][0]=image`, // the content type to fetch
+  // endpoint : `/pictures?populate=tour=1`,
+  wrappedByKey: 'data', // the key to unwrap the response
+});
+
+
+
+console.log("/////////////fetching id Gallery///////////// "+  tour);
+// const reverseGallery = gallery.reverse();
+
+const imagesPerBlock = 2;
+// console.log(tour.attributes.galleries.data);
+const gallery = tour.attributes.galleries.data;
+// console.log(gallery[0].attributes.title)
+// console.log(gallery[0].attributes.image.data.attributes.url)
+
+// console.log(gallery[0].attributes.image.attributes.data?.attributes.url)
+// console.log(gallery[0].attributes.id)
+---
+
+<section class="section flex flex-col max-w-96 min-w-full rounded-sm md:flex-row flex-wrap gap-3 md:gap-5 justify-center items-center" 
+style="background: white; padding:4vw; padding-top: 20px;  ">    
+
+   <!-- <h1>{tour}</h1> -->
+  
+   <h1 class={`text-left min-w-full text-5xl dark:text-white max-w-lg`}>Birdwatching Tours and Experiences</h1>  
+
+  <div class={`grid grid-cols-2 md:grid-cols-${numCols} gap-6 text-center`}>
+    
+
+     {gallery.map((picture, index) => {
+       
+      if (index % imagesPerBlock === 0) {
+        const nextPicture = gallery[index + 1];
+      
+        return (
+          
+          <div class="grid gap-4">            
+            <CardPictureTour
+              img1={picture.attributes.image.data?.attributes.url}
+              img1id={picture.id}
+              img2={nextPicture?.attributes.image.data?.attributes.url}
+              img2id={nextPicture?.id}
+              title={picture.attributes.title}
+              ph={picture.attributes.ph}
+            ></CardPictureTour>
+          </div>
+          <></>
+        );
+      } else {
+        return null;
+      }
+    })} 
+  </div>
+
+
+  
+</section>
+

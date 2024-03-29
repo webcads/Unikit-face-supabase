@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/layout.astro";
+import Gallery from "./gallery.astro";
+import CardContact from "../components/pages/CardContact.astro";
+
+---
+
+<Layout
+    title="Ads"
+    subtitle="Anuncios y publicidad, asesorias, ingresos, ventas, catalogo productos, redes sociales, SEO, google ads "
+>
+    <section class=" section flex flex-col gap-10 text-secondary dark:text-primary">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl pb-5 md:pb-10">
+           Gestion de Datos/Interfaz Admin
+        </h1>
+        <p>
+            Bienvenido a nuestra sección de <strong>"Gestión de Datos/Interfaz Admin"</strong>. Aquí, le ofrecemos un CMS de última tecnología que le brinda control total sobre su contenido. Actualice catálogos, modifique el contenido de su página y más, todo sin necesidad de un programador. Usted tiene el control total, todo el tiempo.
+        </p>
+
+        <p>
+            Utilizamos tecnologías avanzadas como Strapi para ofrecer una interfaz admin intuitiva, permitiéndote control total sobre tu contenido sin necesidad de conocimientos técnicos.
+        </p>
+
+        <div class="">
+            <img  class="rounded-xl" src="/services/strapi.jpeg" width={600} height={600} alt="strapi System"></img>
+        </div>
+
+        <a href="/web" type="button" class="w-fit text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">Comprar Plan para Gestion de Datos</a>
+    </section>
+    <CardContact></CardContact>
+</Layout>

@@ -1,0 +1,108 @@
+---
+import datasClient from "../../config/clientData.json"
+
+interface PricingCardProps {
+    category?:string
+    title?: string;
+    subtitle?: string;
+    price?: string;
+    duration?: string;
+    availableItems?: string[];
+    unavailableItems?: string[];
+}
+
+ const {title,subtitle, price,duration,availableItems,unavailableItems} = Astro.props;
+
+---
+
+<style>
+    .bg-silver-gradient {
+        background:linear-gradient(42deg,#C0C0C0,#ffffff);
+    }
+
+    .hover\:bg-silver:hover, .dark\:hover\:bg-silver-dark:hover {
+        background: linear-gradient(353deg, #B0B0B0, #CDCDCD);
+        transform: rotate(0deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .bg-gold-gradient {
+        background: linear-gradient(133deg,#fff8d4,#ffa500);
+    }
+
+    .hover\:bg-gold:hover, .dark\:hover\:bg-gold-dark:hover {
+        background: linear-gradient(30deg, #FFC200, #FFA500);
+        transform: rotate(0deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .bg-golden {
+        background: linear-gradient(20deg, #FFD700, #FFA500);
+    }
+    .rotate-bg {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .hover\:rotate-bg:hover {
+        transform: rotate(360deg);
+    }
+</style>
+
+<div class={`w-full min-w-[280px] max-w-xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 ${title === "Cheaper" ? "bg-standard" : title === "Recomended" ? "bg-silver-gradient rotate-bg" : title === "Premium CAD(Code, Delta, Ads)" ? "bg-golden hover:rotate-bg" : ""}`}>
+    <h5 class="mb-4 text-lg font-medium text-gray-500 dark:text-gray">{title}</h5>
+    <h5 class="mb-4 text-lg font-medium text-gray-500 dark:text-gray">{subtitle}</h5>
+    <div class="flex items-baseline text-gray-900 dark:text-secondary">
+        <span class="text-xl font-semibold">$</span>
+        <span class="text-3xl font-extrabold tracking-tight">{price}</span>
+        <span class="ms-1 text-sm font-normal text-gray-500 dark:text-secondary">/{duration}</span>
+    </div>
+    <ul role="list" class="space-y-2 my-4 list-none">
+        {availableItems?.map((item, index) => (
+            <li key={index} class="flex items-cente  ">
+                <svg
+                    class="flex-shrink-0 w-3 h-3 text-blue-600 dark:text-blue-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                >
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+                <span class="text-xs font-normal text-secondary dark:text-[gray] leading-tight text-gray-500 dark:text-gray-400 ms-2">{item}</span>
+            </li>
+        ))}
+       {/* Elementos no disponibles */}
+        {unavailableItems?.map((item, index) => (
+            <li key={index} class="flex items-center line-through decoration-gray-500">
+                <svg
+                    class="flex-shrink-0 w-3 h-3 text-gray-400 dark:text-gray-500"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                >
+                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                </svg>
+                <span class="text-xs font-normal text-secondary dark:text-text-[gray] leading-tight text-gray-500 dark:text-gray-400 ms-2">{item}</span>
+            </li>
+        ))}
+    </ul>  
+        
+       
+    
+    <a
+    href={`https://wa.me/${datasClient.phone}?text=Choose%20${encodeURIComponent(Astro.props.category)}%20Plan:%20${encodeURIComponent(title)}%20Price:%20${encodeURIComponent(price)}`}
+    class={`text-secondary hover:text-white ${
+        title === "Cheaper"
+            ? "bg-blue-600 hover:bg-blue-700 focus:ring-blue-200 dark:focus:ring-blue-900"
+            : title === "Recomended"
+            ? "hover:bg-silver dark:hover:bg-silver-dark focus:ring-silver dark:focus:ring-silver-dark"
+            : title === "Premium CAD(Code, Delta, Ads)"
+            ? "hover:bg-gold dark:hover:bg-gold-dark focus:ring-gold dark:focus:ring-gold-dark"
+            : ""
+    } font-medium rounded-lg text-sm px-4 py-2 inline-flex justify-center w-full text-center`}
+>
+    Choose plan
+</a>
+
+</div>

@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/layout.astro";
+
+const { id } = Astro.params;
+
+let producto;
+
+import { getProductoById } from "../../config/servicesSupabase/getProducto";
+import type Producto from "../../interfaces/producto";
+import Item from "../../components/productos/Item.astro";
+import ItemSingle from "../../components/productos/ItemSingle.astro";
+
+if (id === undefined) {
+    console.error("El ID del producto es undefined");
+    // Manejar el caso de ID indefinido, por ejemplo, redirigir o mostrar un mensaje de error
+} else {
+    const productoPromise = getProductoById(id);
+    producto = await productoPromise; // Esperar a que se resuelva la promesa
+    console.log("SLUG PRODUCT GET: " + JSON.stringify(producto));
+}
+
+
+---
+
+<Layout title="producto" subtitle={producto.id}>    
+   <ItemSingle 
+        url_imagen={producto.url_imagen}
+        title={producto.title}
+        subtitle={producto.subtitle}
+        price={producto.precio}
+        arrayColor={producto.colores}
+     ></ItemSingle>
+</Layout>

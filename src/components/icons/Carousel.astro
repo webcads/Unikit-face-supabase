@@ -1,0 +1,101 @@
+---
+import RectangleTours from "./RectangleTours.astro";
+import Car from "../icons/Car.astro"
+// fetching 
+import fetchApi from '../../lib/strapi';
+import type Tour from '../../interfaces/tour';
+
+const tours = await fetchApi<Tour[]>({
+  endpoint: 'tours?populate=image', // the content type to fetch
+  wrappedByKey: 'data', // the key to unwrap the response
+});
+
+
+console.log("/////////////fetching articles///////////// "+ tours);
+---
+
+<!-- import.meta.env.STRAPI_URL --> 
+  <!-- static | slide -->
+  <div id="default-carousel" class="relative w-full md:w-2/3 transition-all h-auto " data-carousel="static"
+  style=" min-height: 60vh;">
+    <!-- Carousel wrapper -->
+    <ul class="relative  h-56 overflow-visible transition-all rounded-lg md:h-96"
+    style="min-height: inherit;">
+        {
+            tours.map((tour) => (         
+            <li class="hidden  overflow-hidden duration-700 ease-in-out  transition-transform " data-carousel-item             
+            style=" ">
+            <div class="">
+                <a href={`tours/${tour.attributes.slug}/`}                 
+                class="text-white hover:text-white cursor-pointer ">                 
+                {tour.attributes.image.data ? (
+                <div class="m-4 shadow-2xl bg-slate-400   rounded-lg relative min-w-50 max-w-50 min-h-50 max-h-50 overflow-hidden p-3"
+                style={`min-height:290px; max-height:290px; min-width:250px; max-width:250px;
+               
+                    background: linear-gradient(to top, rgb(15 32 39) , rgb(32 58 67 / 0%), rgb(44 83 100 / 36%)), url(${tour.attributes.image.data?.attributes.url}) 50% 50% / cover no-repeat;              
+                `}
+                >   
+             
+                <span class="flex flex-row justify-between ">
+                    <p class="text-lg  text-left p-0 -mt-3  rounded-lg  capitalize"
+                    style="background: rgb(0 0 0 / 0%);
+                    width: fit-content;
+                    backdrop-filter: blur(1px); 
+                    text-transform: capitalize;"
+                    >{tour.attributes.title}
+                    <div class="-mt-2 opacity-50 hover:opacity-100 z-50" style="">
+                        <Car w="20" h="20" ></Car>
+                    </div>                
+                    </p>  
+                </span>
+                        
+
+                <p class="absolute bottom-0 left-0 m-3  text-left line-clamp-2"
+                style="">
+                    {tour.attributes.description}
+                </p>
+                
+                </div>
+            ) : null} 
+                </a>
+            </div>
+            </li>       
+            ))
+          }
+        
+        <!--  <div class="hidden  duration-700 ease-in-out" data-carousel-item style=" ">    
+            <span class="absolute block  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                <RectangleTours  w="300" h="300"></RectangleTours>
+            </span>                    
+        </div>  -->
+     
+    </ul>
+    <!-- Slider indicators -->
+    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <div class="relative">
+        <button type="button" class="absolute  bottom-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex self-end items-center justify-center w-10 h-10 rounded-full bg-white/40 dark:bg-white-800/30 group-hover:bg-white/50 dark:group-hover:bg-white-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 dark:text-white text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex self-end items-center justify-center w-10 h-10 rounded-full bg-white/40 dark:bg-white-800/30 group-hover:bg-white/50 dark:group-hover:bg-white-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 dark:text-white text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+ 
+</div>

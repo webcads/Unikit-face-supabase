@@ -1,0 +1,89 @@
+---
+interface Props {
+    id: number;
+    imgMobil: string;
+    imgPc: string;
+    title?: string;
+    subtitle: string;
+    price: Number;
+    arrayColor?: string[];
+    url_imagen: string;
+}
+const { id,imgMobil, imgPc, title, subtitle, price, arrayColor,url_imagen } = Astro.props;
+console.log("ID PRODUCTO:" + id)
+// console.log(arrayColor, imgMobil, url_imagen);
+
+---
+
+<article  class=" w-1/2 md:w-1/4 ">
+    
+    <a href=`/producto/${id}` class=" flex flex-col items-start md:items-center ">
+        <!-- rederizing whit local image -->
+        <!-- <div
+            class=" w-full min-w-44 max-w-[50vw] h-[40vh] min-h-[40vh] max-h-[50vh] relative bg-white rounded-sm overflow-hidden  dark:bg-gray-800 dark:border-gray-700"
+            style=`background-image: url(/tshirt/${imgMobil});
+            background-position: center;           
+            background-size: cover;
+            background-repeat: no-repeat;`
+        > -->
+<!-- renderizing with url imagen -->
+        <div
+        class=" w-full min-w-60 max-w-[60vw] h-[40vh] min-h-[40vh] max-h-[50vh] relative bg-white rounded-sm overflow-hidden  dark:bg-gray-800 dark:border-gray-700"
+        style=`background-image: url(${url_imagen});
+        background-position: center;           
+        background-size: cover;
+        background-repeat: no-repeat;`
+    >
+            <!-- Your div content here -->
+            <span class="absolute bottom-3 right-3">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.5em"
+                    height="1.5em"
+                    viewBox="0 0 48 48"
+                    ><path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="4"
+                        d="M19 41C13.5 38.25 8.001 31 5 26c-3-5 3.313-9.687 7-6l4 4V7.5a3.5 3.5 0 1 1 7 0V17a3.5 3.5 0 1 1 7 0v1.5a3.5 3.5 0 1 1 7 0v-5a3.5 3.5 0 1 1 7 0v16.615c0 1.897-.422 3.789-1.573 5.297C41.133 37.106 39.017 39.354 36 41c-5.5 3-11.5 2.75-17 0"
+                    ></path></svg
+                >
+            </span>
+        </div>
+        <div
+            class="p-3 w-full text-start md:text-center items-start md:justify-center"
+        >
+            <h4
+                class="text-sm tracking-tight text-gray-900 dark:text-white mb-0 text-nowrap text-ellipsis overflow-hidden"
+            >
+                {title}
+            </h4>
+            <h5
+                class="mb-0 text-xs text-[#737373] tracking-tight text-gray-900 dark:text-white"
+            >
+                {subtitle}
+            </h5>
+
+            <h6 class="font-bold text-sm dark:text-white text-secondary">
+                $ {price.toLocaleString()} COP
+            </h6>
+            <!--  colors camisas  -->
+            <div
+    class="colors_items flex flex-row md:justify-center gap-1"
+    style="display: ${Array.isArray(arrayColor) && arrayColor.length > 0 ? 'flex' : 'none'};"
+>
+    {arrayColor && arrayColor.length > 0 && arrayColor.map((color) => (
+        <div class="flex flex-row items-center" >
+            <div
+                class="w-3 h-3 border border-gray-300"
+                style={{ backgroundColor: color }}
+            />
+        </div>
+    ))}
+</div>
+
+        </div>
+    </a>
+</article>

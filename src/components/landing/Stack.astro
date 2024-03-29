@@ -1,0 +1,25 @@
+---
+import Tienda from "../../components/tiendas/Tienda.astro";
+interface Props {
+    arrayTiendas?: string[];
+}
+const { arrayTiendas } = Astro.props;
+console.log("ARRAY TIENDAS: " + JSON.stringify(arrayTiendas));
+---
+
+<section
+    class="section items-center justify-center flex flex-col overflow-hidden"
+    style="padding: 0px !important;"
+>
+    <h5
+        class="uppercase m-2 font-extrabold text-center w-full bg-secondary dark:bg-primary text-primary dark:text-secondary"
+    >
+        Stack Stores
+    </h5>
+
+    {
+        Object.keys(arrayTiendas).map((tiendaArray,index) => (            
+            <Tienda index={index} listaTiendas={arrayTiendas[tiendaArray] } />
+        ))
+    }
+</section>

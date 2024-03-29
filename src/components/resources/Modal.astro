@@ -1,0 +1,23 @@
+---
+interface Props {
+    img?:string 
+    id?:string
+    visible?:string
+}
+const {img, id} = Astro.props;
+
+---
+
+<div id={`drawer-modal${id}`} class={`h-full w-full flex fixed flex-row items-center justify-center bg-blue-950/40 transition-transform -translate-x-full left-0 top-0 translate-y-0 z-50 tabindex="-1" aria-labelledby="drawer-contact-label`}  
+style="backdrop-filter: blur(4px); max-height: 100%; min-width: fit-content; "> 
+
+  <!-- card picture -->
+  <div class="max-w-xl bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-700" style="">
+    <a class="" type="button" data-drawer-hide={`drawer-modal${id}`} aria-controls={`drawer-modal${id}`}>
+    
+      <img class="inline w-full max-h-full object-cover" src={img} alt="" />   
+    </div>
+    </a>
+ 
+
+</div>

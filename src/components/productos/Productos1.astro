@@ -1,0 +1,31 @@
+---
+import Item from "./Item.astro"
+interface Props {    
+    productos: string[];
+    sectionTitle?: string; 
+  
+
+}
+const {productos,sectionTitle } = Astro.props;
+console.log("ITEM PRODUCTO DE CATALOGO:"+ JSON.stringify(productos))
+---
+
+<section
+    class="flex section flex-col  items-center justify-center"
+    style="padding: 5.6vw !important;"
+>
+<h5 class="uppercase m-2 text-center w-full bg-secondary dark:bg-primary text-primary dark:text-secondary">{sectionTitle}</h5>
+<div class="flex-row md:flex-row flex-wrap flex justify-between">
+    {Array.isArray(productos) && productos.map((item, index) => (
+        <h1>TITLE: {item.title}</h1>
+        <Item             
+            key={index} // Asegúrate de agregar una clave única para cada elemento
+            imgMobil={item.imgProducto}               
+            title={item.title} 
+            subtitle={item.subtitle} 
+            price={item.precio}
+            // arrayColor={producto.arrayColor}
+        />
+    ))}
+</div> 
+</section>

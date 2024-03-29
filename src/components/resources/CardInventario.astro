@@ -1,0 +1,106 @@
+---
+interface Props {
+  arrayPax?: Array<any>
+  lineClamp?:string
+  array?: string[]; // Utiliza un arreglo de cadenas
+  textSize?: string
+  mb?: string
+  p?: string
+}
+const {arrayPax,array,lineClamp, textSize, mb,p,} = Astro.props;
+// console.log( "array pax:" +array[0].attributes.pax_and_prices.data.attributes.price);
+console.log("ARRRAY:" +array.attributes.duration)
+console.log("ARRRAY PAX:" +arrayPax.attributes)
+---
+
+<ol class={`relative ${textSize} text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400`} 
+style="">                  
+  <li class="mb-6 ms-6">            
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-green-200 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 25 20">
+     <path xmlns="http://www.w3.org/2000/svg" d="M7.75 2.5C7.75 2.08579 7.41421 1.75 7 1.75C6.58579 1.75 6.25 2.08579 6.25 2.5V4.07926C4.81067 4.19451 3.86577 4.47737 3.17157 5.17157C2.47737 5.86577 2.19451 6.81067 2.07926 8.25H21.9207C21.8055 6.81067 21.5226 5.86577 20.8284 5.17157C20.1342 4.47737 19.1893 4.19451 17.75 4.07926V2.5C17.75 2.08579 17.4142 1.75 17 1.75C16.5858 1.75 16.25 2.08579 16.25 2.5V4.0129C15.5847 4 14.839 4 14 4H10C9.16097 4 8.41527 4 7.75 4.0129V2.5Z" fill="currentColor"/>
+     <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 11.161 2 10.4153 2.0129 9.75H21.9871C22 10.4153 22 11.161 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12ZM17 14C17.5523 14 18 13.5523 18 13C18 12.4477 17.5523 12 17 12C16.4477 12 16 12.4477 16 13C16 13.5523 16.4477 14 17 14ZM17 18C17.5523 18 18 17.5523 18 17C18 16.4477 17.5523 16 17 16C16.4477 16 16 16.4477 16 17C16 17.5523 16.4477 18 17 18ZM13 13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13ZM13 17C13 17.5523 12.5523 18 12 18C11.4477 18 11 17.5523 11 17C11 16.4477 11.4477 16 12 16C12.5523 16 13 16.4477 13 17ZM7 14C7.55228 14 8 13.5523 8 13C8 12.4477 7.55228 12 7 12C6.44772 12 6 12.4477 6 13C6 13.5523 6.44772 14 7 14ZM7 18C7.55228 18 8 17.5523 8 17C8 16.4477 7.55228 16 7 16C6.44772 16 6 16.4477 6 17C6 17.5523 6.44772 18 7 18Z" fill="currentColor"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>Tour Duration</h3>
+    <p class={`${textSize}`}>{array.attributes.duration} days</p>
+  </li>
+  <li class="mb-6 ms-6">
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+        <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM6.5 3a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3.014 13.021l.157-.625A3.427 3.427 0 0 1 6.5 9.571a3.426 3.426 0 0 1 3.322 2.805l.159.622-6.967.023ZM16 12h-3a1 1 0 0 1 0-2h3a1 1 0 0 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Zm0-3h-3a1 1 0 1 1 0-2h3a1 1 0 1 1 0 2Z"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>Group size</h3>
+    <p class={`${textSize}`}>{array.attributes.group_size} People</p>
+  </li>
+  <li class="mb-6 ms-6">
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>Single Supplement</h3>
+    <p class={`${textSize}`}>${array.attributes.single_supplement} USD</p>
+  </li>
+  <li class="mb-6 ms-6">
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>Does include</h3>
+    <p class={`${textSize} line-clamp-${lineClamp}`}>{array.attributes.incluide}</p>
+  </li>
+  <li class="mb-6 ms-6">
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2ZM7 2h4v3H7V2Zm5.7 8.289-3.975 3.857a1 1 0 0 1-1.393 0L5.3 12.182a1.002 1.002 0 1 1 1.4-1.436l1.328 1.289 3.28-3.181a1 1 0 1 1 1.392 1.435Z"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>Does not include</h3>
+    <p class={`${textSize} line-clamp-${lineClamp}`}>{array.attributes.not_include}</p>
+  </li>
+  {arrayPax.map((pax) => (         
+  <li class="mb-6 ms-6">
+    <span class="absolute hover:bg-green-200 flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-gray-700">
+      <svg class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+        <path d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z"/>
+      </svg>
+    </span>
+    <h3 class={`font-medium ${p} leading-tight dark:text-gray-200`}>{pax.attributes.pax_description}</h3>
+    <p class={`${textSize}`}>${pax.attributes.price} USD</p>
+  </li>
+  ))}	
+
+  
+</ol>
+
+<!-- pax  and  prices  -->
+    <!-- {arrayPax.map((pax) => (           
+      <li class="py-3 sm:py-4">
+      <div class="flex items-center">
+
+          <div class="flex-1 min-w-0">
+              <p
+                  class="text-sm font-medium text-gray-900 truncate dark:text-white"
+              >
+                  PAX
+              </p>
+              <p
+                  class="text-sm text-gray-500 truncate dark:text-gray-400"
+              >
+                  {pax.attributes.pax_description}
+              </p>
+          </div>
+          <div
+              class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+          >
+              ${pax.attributes.price}
+          </div>
+      </div>
+  </li>
+  ))}		   -->
+  
+
+

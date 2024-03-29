@@ -1,0 +1,122 @@
+---
+import CADTalking from "../components/pages/CADTalking.astro";
+import PricingCard from "../components/pages/PricingCard.astro";
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout
+    title="Design"
+    subtitle="Diseña tu logo, logos, diseño ui ux, branding diseño grafico, logos gratis, logotipo,crear logos, marcas, diseño para publicidad"
+>
+    <section class="section text-secondary dark:text-primary">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl pb-5 md:pb-10">
+            ¡Diseña tu Identidad con CAD!
+        </h1>
+        <h2>
+            Ofrecemos servicios de diseño a la vanguardia, en CAD destacamos por
+            la eficiencia del producto gráfico en cada ámbito difusivo.
+        </h2>
+
+        <ul class="bt-20 flex flex-col md:flex-row pt-10 gap-10">
+            <li>
+                <strong class="pt-5">Logos Atractivos:</strong>
+                <p>Crea logotipos singulares y en cualquier estilo.</p>
+            </li>
+            <li>
+                <strong class="pt-5">Diseño UI/UX profesional:</strong>
+                <p>
+                    Experiencias de usuario intuitivas que cautivan a tu
+                    audiencia.
+                </p>
+            </li>
+            <li>
+                <strong class="pt-5">Branding Sólido:</strong>
+                <p>Desarrollamos identidades visuales e impactamos siempre.</p>
+            </li>
+
+            <li>
+                <strong class="pt-5">Publicidad y Marketing:</strong>
+                <p>
+                    Estrategias que maximizan el interés del publico que buscas.
+                </p>
+            </li>
+        </ul>
+
+        <p class="pt-5">
+            Este es el momento de crear tu logo, la marca que merece tu
+            emprendimiento o de renovar su identidad visual. Vamos lanzar esos
+            grandes proyectos a la estratósfera!.
+        </p>
+
+        <CADTalking color="springgreen" arrayText="texto1;texto2;texto3" />
+    </section>
+
+    <!-- PANES , PRECIO Y CARACTERISTICAS -->
+    <section class="section p-10 flex flex-col justify-center" style="">
+        <h2
+            class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-secondary pb-5 md:pb-10 dark:text-primary"
+        >
+            Planes, Precios de Compra
+        </h2>
+        <div
+            class="flex-1 flex flex-col flex-wrap md:flex-wrap lg:flex-nowrap pt-10 pb-10 md:flex-row gap-16 items-center justify-center"
+        >
+            <PricingCard
+                category="Diseño"
+                title="Starter pack"            
+                subtitle="Logo / logotipo"
+                price="399.00"
+                duration=""
+                availableItems={[
+                    "Manual básico del uso adecuado del logo",
+                    "Imagen para perfil y portadas en medios digitales.",
+                    "Poster personalizado.",
+                    "Tarjeta de presentación."         
+
+                ]}
+                unavailableItems={[
+                    "Logo animado"                
+                ]}
+            />
+
+            <PricingCard
+                category="Diseño"
+                title="Recomendado"
+                subtitle="Logos / logotipos / Branding"
+                price="1300.00"
+                duration=""
+                availableItems={[
+                    "Manual de marca y aplicación en productos, papelería o web.",
+                    "Imagen para perfiles y portadas en medios digitales.",
+                    "Posters publicitarios",
+                    "Brochure empresarial.",
+                    "Animación de logos,intro / Outro."                    
+                ]}
+                unavailableItems={[
+                    "SEO",
+                    "Contenido de publicidad y marketing",
+                    "Asesoria creacion y publicacion de anuncios"
+                ]}
+            />
+            <PricingCard
+                category="Diseño"
+                title="Premium Propack"
+                subtitle="Studio Branding"
+                price="2500.00"
+                duration=""
+                availableItems={[
+                    "Manual de identidad visual digital y análogo.",
+                    "Brochure empresarial.",
+                    "Imagen para perfiles y portadas en medios digitales",
+                    "Campaña de marketing y social media.",
+                    "Presentación audiovisual de la marca.",
+                    "Anuncio publicitario en video.",
+                    "diseño web UI/UX"          
+                ]}
+                unavailableItems={[
+                    // Elementos no disponibles para Premium CAD
+                ]}
+            />
+        </div>
+    </section>
+</Layout>

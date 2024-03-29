@@ -1,0 +1,145 @@
+---
+interface Props {
+    arrayPax?: string[];
+    tourAttributes?: Array<any>
+    tourId?: number;
+}
+const { tourAttributes, tourId,arrayPax } = Astro.props;
+let idString = tourId !== undefined ? tourId.toString() : undefined;
+
+import SectionTitle from "../resources/SectionTitle.astro";
+---
+
+<!-- card tour details -->
+<div class="flex-1 rounded-md flex flex-col md:flex-row gap-10  overflow-hidden min-w-min md:w-2/3 w-full m-0 " style="">
+    <div
+        class="flex-1 p-5 bg-white border border-gray-200 rounded-md shadow dark:bg-gray-800 dark:border-gray-700"
+        style="min-width:65%"
+    >
+        <SectionTitle
+            color="white"   
+            title="All about"
+            subtitle={tourAttributes.title}
+            titleSize=""
+            subsize="text-xl"
+            p="pb-10"
+        />
+
+        <!-- Region:  -->
+        <h6
+            class="text-sm -mt-6 pb-10 text-gray-500 truncate dark:text-gray-300"
+            style="font-weight: 600;"
+        >
+            {tourAttributes.region}
+        </h6>
+
+        <h6 class="text-sm font-medium pb-6 text-gray-900 dark:text-white">
+            <!-- Description:  -->
+            <p class="text-sm text-gray-500 text-justify  dark:text-gray-400">
+                {tourAttributes.description}
+            </p>
+        </h6>
+
+       
+      
+    </div>
+    <div
+    class="flex-1 p-5 bg-white border border-gray-200 rounded-md shadow dark:bg-gray-800 dark:border-gray-700"
+    style=""
+>
+    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+        <li class="py-3 sm:py-4">
+            <div class="flex items-center">
+     
+                <div class="flex-1 min-w-0">
+                    <p
+                        class="text-sm font-medium text-gray-900 truncate dark:text-white"
+                    >
+                        Date departure
+                    </p>
+                    <p
+                        class="text-sm text-gray-500 truncate dark:text-gray-400"
+                    >
+                        {tourAttributes.date_departure}
+                    </p>
+                </div>
+                <div
+                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+                >
+                    All year {tourAttributes.all_year}
+                </div>
+            </div>
+        </li>
+        <li class="py-3 sm:py-4">
+            <div class="flex items-center">
+      
+                <div class="flex-1 min-w-0">
+                    <p
+                        class="text-sm font-medium text-gray-900 truncate dark:text-white"
+                    >
+                        Region
+                    </p>
+                    <p
+                        class="text-sm text-gray-500 truncate dark:text-gray-400"
+                    >
+                        {tourAttributes.region}
+                    </p>
+                </div>
+                <div
+                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+                >
+                    -{tourAttributes.discount}%
+                </div>
+            </div>
+        </li>
+        <li class="py-3 sm:py-4">
+            <div class="flex items-center">
+
+                <div class="flex-1 min-w-0">
+                    <p
+                        class="text-sm font-medium text-gray-900 truncate dark:text-white"
+                    >
+                        Price
+                    </p>
+                    <p
+                        class="text-sm text-gray-500 truncate dark:text-gray-400"
+                    >
+                        {tourAttributes.price_visible}
+                    </p>
+                </div>
+                <div
+                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+                >
+                    ${tourAttributes.price} USD
+                </div>
+            </div>
+        </li>
+        <!-- pax  and  prices -->
+             {arrayPax.map((pax) => (           
+            <li class="py-3 sm:py-4">
+            <div class="flex items-center">
+
+                <div class="flex-1 min-w-0">
+                    <p
+                        class="text-sm font-medium text-gray-900 truncate dark:text-white"
+                    >
+                        PAX
+                    </p>
+                    <p
+                        class="text-sm text-gray-500 truncate dark:text-gray-400"
+                    >
+                        {pax.attributes.pax_description}
+                    </p>
+                </div>
+                <div
+                    class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white"
+                >
+                    ${pax.attributes.price} USD
+                </div>
+            </div>
+        </li>
+        ))}		     
+   
+    </ul>
+    </div>
+</div>

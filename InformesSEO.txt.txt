@@ -1,0 +1,74 @@
+HERRAMIENTAS:
+
+	video SEO:
+	DONE https://www.youtube.com/watch?v=af7l5sYOV9Q&ab_channel=RomualdFons
+
+	Aplicando Seo desde cero:
+	https://www.youtube.com/watch?v=mm4TF_mp0iM&ab_channel=RomualdFons
+
+	Planificador de palabras clave:
+	https://ads.google.com/intl/es-419_pe/home/tools/keyword-planner/
+
+	Herramienta planificador:
+	https://ads.google.com/aw/keywordplanner/ideas/new?ocid=1583781593&authuser=0&__u=3872497572&__c=5282437457
+
+	
+
+APLICACION SEO:
+-busquedas con palabras clave de o sinonimos
+	KEY WORDS:
+	
+	Tour en Colombia
+	Tour internacionales
+	Excursiones en Colmbia 
+	Bird watching
+	Birding Tours
+	Andes  mountains
+	wester, central, easter Andes, mid , magdalena 
+
+	LONG TAIL WORDS:
+	Turismo Natural en Colombia
+	Birdwatching Tours 	
+	Birding with expert  guides
+
+	INTENCIONES DE BUSQUEDA: (ligado con Contenido de Calidad)
+		INFORMATIVAS: buscan el mejor siti, con la mejor informacion
+		FAQ (frecuent Ask and Question)
+		what is the  best site to get Tours
+		the best  site  tou ger tour 
+		the best places to tours
+		top tour Colombia
+		top tour southamerica latin america
+		
+		TRANSACCIONALES: buy tour
+		i want to buy one tour 
+		get tour 
+		TEMPORALES: enero-febrero , noviembre to dicember
+		tour from _____ to _____
+		PALABRAS CON SPONSOR O PUBLICIDAD Y CON PRODUCTOS:
+	
+
+CONTENIDO CALIDAD:nuevo contenido que responda a las preguntas de los usuarios en relaciona tours, birding y birdwatching
+	-Regiones (ex: Santa Martha Mountains, Wester Andes, Central Andes, Eastern Andes)
+
+-contenido interesante de calidad , top 10 mejores tour en Colombia
+
+COMPETENCIA DE SEO: Mozbar extension, to get DA and PA
+	DA: Domain Authority(imposible competir con paginas como RockJumper y antiguas paginas)
+	PA: Page Authority (Camino viable para posicionar Webs-Posicionar Tematica de Pagina web)
+
+	APLICACION: buscar pageinas con tematicas con PA < 30  
+	Planning Your Trip
+	plainer 
+	8 BEST BIRDING TOURS IN SOUTH AMERICA! (2024)
+	schedule	
+	BirdWatching holidays 
+	tour vacations nature
+	photography tour of Colombia and bird watching
+	photo tours
+
+INFORMES SEO 
+
+GALERIA :Metadados de  la pagina  galeria para posicionamiento SEO
+
+	<Layout title="Gallery" subtitle="Birdwatching Tours and Experiences, Nature Explorations, Immerse in Birdwatching Tours, Nature 	Escapes, and Unique Experiences Showcase">

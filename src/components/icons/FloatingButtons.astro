@@ -1,0 +1,50 @@
+---
+import Whatsapp from '../../components/icons/Whatsapp.astro';
+import Mail from "../../components/icons/Mail.astro";
+import clientData from "../../config/clientData.json" 
+
+interface Props {    
+  w?: string
+  h?: string	
+}
+const {w, h} = Astro.props;
+const subject = "Help me CAD";
+const body = "Hi! I am interested in ...";
+
+---
+
+<!-- floating buttons -->
+<div id="floatingButtons" class="fixed flex flex-col bottom-20 md:bottom-0 right-0 z-30 gap-5 md:gap-2 md:m-8 m-2 transition-transform duration-300" >
+  <a href={`https://wa.me/${clientData.phone}?text=Hello%20CAD!`} class="w-12 h-12 md:w-14 md:h-14 cursor-pointer">
+    <Whatsapp w="100%" h="100%" bg="currentColor" ></Whatsapp>
+  </a>
+  <a href={`mailto:${clientData.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`} class="w-12 h-12 md:w-14 md:h-14 cursor-pointer">
+    <Mail w="100%" h="100%" bg="currentColor" ></Mail>
+  </a>  
+</div>
+
+<script is:inline>
+  
+// Variable para almacenar la posición del scroll anterior
+let lastScrollPosition = window.scrollY;
+
+// Función para manejar el evento de desplazamiento
+function handleScroll() {
+  const currentScrollPosition = window.scrollY;
+
+  // Ocultar los botones si se hace scroll hacia abajo y mostrarlos si se hace scroll hacia arriba
+  if (currentScrollPosition > lastScrollPosition) {
+    // Scroll hacia abajo
+    document.getElementById('floatingButtons').style.transform = 'translateX(100%)';
+  } else {
+    // Scroll hacia arriba
+    document.getElementById('floatingButtons').style.transform = 'translateX(0)';
+  }
+
+  // Actualizar la posición del scroll anterior
+  lastScrollPosition = currentScrollPosition;
+}
+
+// Agregar un event listener para el evento de desplazamiento
+window.addEventListener('scroll', handleScroll);
+</script>

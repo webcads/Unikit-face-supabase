@@ -1,0 +1,99 @@
+---
+interface Props {
+    imgBanner: string;
+    imgLogo: string;
+    title: string;
+    subtitle: string;   
+    item1?: string;
+    item2?: string;
+    categorias?: string;
+    
+}
+const { imgBanner, imgLogo, title, subtitle, categorias, item1, item2 } =Astro.props;
+
+console.log("ITEMS TIENDAS: " + imgBanner)
+---
+
+
+<div class="w-full md:w-[75%] flex h-full relative">
+    {imgBanner && (
+        <img
+            class="absolute z-0 object-cover w-full items-start justify-start rounded-t-lg h-full md:h-full md:w-full md:rounded-none"
+            alt=""
+            src=`${imgBanner}`
+        />
+    )}
+    <article class="p-5 md:p-16 flex h-full w-full">
+        <div>
+       
+        </div>
+        <div class="z-10 h-full w-full flex flex-col justify-between">
+            <span class=" flex flex-row">
+                <span
+                class={`z-10  h-fit w-fit right-0 p-3 pt-1 gap-2 ${!imgLogo ? 'hidden' : ''}`}
+                style="filter: invert(0);"
+                 >
+                {imgLogo && (
+                    <img class="w-[60px] md:w-[120px] h-auto rounded-full z-50 bg-primary" src=`${imgLogo}` alt="Rounded avatar">
+                )}
+            </span>
+            <span class="flex flex-col">
+                <h4
+                    class="text-primary uppercase text-2xl md:text-6xl font-extrabold"
+                >
+                    {title}
+                </h4>
+                <p
+                    class="pt-4 text-base md:text-2xl uppercase tracking-[0.2em]"
+                >
+                    {subtitle}
+                </p>
+           
+            </span>     
+
+           
+            </span>
+            <span class="text-start md:text-end ">
+                
+                <p class="text-primary pt-4 text-sm md:text-xl uppercase tracking-[0.2em]">
+                    {categorias}
+                </p>            
+            
+              </span>
+        </div>
+   
+      
+    </article>
+</div>
+<div
+    class={`w-full md:w-fit md:min-w-[25%] md:max-w-[25%] z-10 h-full bg-primary items-center text-center ${(!item1 || !item2) ? 'hidden' : ''}`}
+>
+    {item1 && item2 && (
+        <div
+            class="flex h-full flex-row md:flex-col p-0 items-center justify-center"
+        >
+            <article
+                class="w-[100%] md:w-full flex-row flex md:flex-row justify-center"
+            >
+                <span class="z-10 w-[100%]">
+                    {item1 && (
+                        <img
+                            class="w-full h-[auto] md:h-full md:w-full"
+                            alt=""
+                            src=`${item1}`
+                        />
+                    )}
+                </span>
+                <span class="z-10 h-full w-full right-0">
+                    {item2 && (
+                        <img
+                            class="w-full h-full md:h-full md:w-full"
+                            alt=""
+                            src=`${item2}`
+                        />
+                    )}
+                </span>
+            </article>
+        </div>
+    )}
+</div>

@@ -1,0 +1,93 @@
+---
+interface Props {
+	arraytext?: string;
+} const {arraytext} = Astro.props;
+console.log("dentro de AdsAnimation" + arraytext)
+---
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+div.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: fit-content;
+	min-width: fit-content;
+}
+
+/*Create the blinking animation by simply hide the element.*/
+@keyframes blink {
+    to{
+        visibility: hidden;
+    }    
+}
+</style>
+
+<!--The container div is here to center the text horizontally and vertically.-->
+<div class="container " >
+	<!--The actual text placeholder, which will be write with the js code.-->
+	<h2 id="text" style="min-height: fit-content;
+    min-width: 100%;"
+	></h2>
+</div>
+
+<script is:inline>
+//Define the placeholder where the text will be write in thanks to his id.
+let placeholder = document.getElementById("text");
+//Stock all of the sentences pieces in an array.
+
+let words = ["Hola! ¿Como estas?","Te vamos a acompañar en tu proceso","No esperes mas Run it up now!"];
+
+// let words = ["texto1","texto2","texto3"];
+//Initialize the index at the first element of the previously created array.
+let index = 0;
+function type(word){
+    let i = 0;
+		//Set the interval that makes the writing animation.
+    let writing = setInterval(()=>{
+				//Add the letter at the i index of the current word in the placeholder.
+        placeholder.innerHTML += word.charAt(i);
+        i ++;
+				//If the i index reaches the end of the current word, the writing animation interval stops and the deleting animation beggins after a defined time.
+        if(i>=word.length){
+            clearInterval(writing);
+            setTimeout(erase, 1000);
+        }
+    }, 75)
+
+}
+
+function erase(){
+	//Set the interval that makes the deleting animation.
+    let deleting = setInterval(() => {
+				//Pop off the last character of the previously written sentence.
+        placeholder.innerHTML = placeholder.innerHTML.slice(0,-1);
+				//If no one single letter remains, the deleting animation interval stops.
+        if(placeholder.innerHTML.length <= 0){
+            clearInterval(deleting);
+						//The index var increases by 1, the writing animation is about to start with the next sentence.
+            index++;
+						//If the index var reaches the end of the sentences array, set his value at 0 to looping from the first sentence of the array.
+            if(index>=words.length){
+                index = 0;
+            }
+            type(words[index])
+        }
+    
+        
+    }, 25);
+
+}
+
+//  // Verifica si se proporciona un arreglo de texto en las props
+//  if (Astro.props.arraytext && Astro.props.arraytext.length > 0) {
+//     // Si se proporciona, utiliza ese arreglo en lugar del arreglo predeterminado
+//     words = Astro.props.arraytext;
+//   } else {
+//     // De lo contrario, utiliza el arreglo predeterminado
+//     words = {arraytext};
+//   }
+
+  type(words[index]);
+</script>

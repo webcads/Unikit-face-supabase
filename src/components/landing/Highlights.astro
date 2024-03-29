@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+interface Props {
+    imgMobil: string;
+    imgPc: string;
+}
+const { imgMobil, imgPc } = Astro.props;
+---
+<section class="section flex gap-5 flex-col justify-center text-center">
+    <h2 class="font-bold text-2xl dark:text-primary text-secondary uppercase">
+      Highlights
+    </h2>
+  
+    <!-- Swiper Container -->
+    <div class="swiper-container">
+      <div class="swiper-wrapper flex flex-row gap-5 justify-start md:justify-center ">
+  
+        <!-- Article 1 -->
+        <div class="swiper-slide">
+          <article class="flex flex-col items-center">
+            <a href="#" class="max-w-[280px] max-h-[450px] min-w-[280px] min-h-[450px] bg-white rounded-sm overflow-hidden shadow dark:bg-gray-800 dark:border-gray-700"
+              style=`background-image: url(${imgMobil});
+              background-position: center;             
+              background-size: cover;
+              background-repeat: no-repeat;`
+            >
+              <!-- Your article content here -->
+            </a>
+            <h3 class="dark:text-primary text-secondary p-6 uppercase">
+              Hoddies
+            </h3>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="flex flex-col items-center">
+            <a href="#" class="max-w-[280px] max-h-[450px] min-w-[280px] min-h-[450px] bg-white rounded-sm overflow-hidden shadow dark:bg-gray-800 dark:border-gray-700"
+              style=`background-image: url(${imgMobil});
+              background-position: center;             
+              background-size: cover;
+              background-repeat: no-repeat;`
+            >
+              <!-- Your article content here -->
+            </a>
+            <h3 class="dark:text-primary text-secondary p-6 uppercase">
+              Hoddies
+            </h3>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="flex flex-col items-center">
+            <a href="#" class="max-w-[280px] max-h-[450px] min-w-[280px] min-h-[450px] bg-white rounded-sm overflow-hidden shadow dark:bg-gray-800 dark:border-gray-700"
+              style=`background-image: url(${imgMobil});
+              background-position: center;          
+              background-size: cover;
+              background-repeat: no-repeat;`
+            >
+              <!-- Your article content here -->
+            </a>
+            <h3 class="dark:text-primary text-secondary p-6 uppercase">
+              Hoddies
+            </h3>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="flex flex-col items-center">
+            <a href="#" class="max-w-[280px] max-h-[450px] min-w-[280px] min-h-[450px] bg-white rounded-sm overflow-hidden shadow dark:bg-gray-800 dark:border-gray-700"
+              style=`background-image: url(${imgMobil});
+              background-position: center;             
+              background-size: cover;
+              background-repeat: no-repeat;`
+            >
+              <!-- Your article content here -->
+            </a>
+            <h3 class="dark:text-primary text-secondary p-6 uppercase">
+              Hoddies
+            </h3>
+          </article>
+        </div>
+  
+        <!-- Repeat for other articles -->
+  
+      </div>
+  
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+  
+      <!-- Add Navigation Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+  
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", function () {
+      var isMobile = window.matchMedia("only screen and (max-width: 767px)").matches;
+  
+      if (isMobile) {
+        var mySwiper = new Swiper(".swiper-container", {
+          // Optional parameters
+          direction: "horizontal",
+          loop: false,
+          centeredSlides: true,
+          slidesPerView: 1,
+          spaceBetween: 0,
+  
+          // If we need pagination
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+  
+          // Navigation arrows
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      }
+    });
+  </script>
+  

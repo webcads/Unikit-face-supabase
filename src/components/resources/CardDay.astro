@@ -1,0 +1,37 @@
+---
+
+interface Props {
+  lineClamp?:string
+  array?: string[]; // Utiliza un arreglo de cadenas
+  textSize?:string
+  mb?:string
+  maxH?:string
+  p?:string
+}
+const {array,lineClamp,textSize,mb,maxH,p} = Astro.props;
+
+---
+
+
+<ol class={`relative ${textSize}  text-gray-500 border-s border-gray-200 dark:border-gray-700 dark:text-gray-400`}
+style={``}>
+  {array.map((day) => (
+    
+    <li class={`mb-${mb} ms-6`}>
+      <span class="absolute hover:bg-yellow-100 flex items-center justify-center w-8 h-8 bg-yellow-100 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900">
+        {day.attributes.number}
+      </span>
+      <h3 class={`font-medium leading-tight ${p} dark:text-gray-200 line-clamp-${lineClamp}`} > {day.attributes.title}</h3>
+      <p class={`${textSize} line-clamp-2  text-justify`} 
+      style={`-webkit-line-clamp: ${lineClamp};`}>
+          {day.attributes.description}
+          </p>
+    </li>
+    
+    ))}
+  </ol>
+
+  
+  
+  
+  

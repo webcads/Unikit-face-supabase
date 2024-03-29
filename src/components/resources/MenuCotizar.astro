@@ -1,0 +1,135 @@
+---
+// MenuCotizar.astro
+
+import jsonData from "../../config/MenuNav.json";
+import MainNav from "./MainNav.jsx";
+---
+
+<style>
+   #drawer-contact {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out; /* Ajusta estos valores según sea necesario */
+      transform: translateX(0px);
+      transition: all 0.2s ease-in;
+   }
+
+   #drawer-contact.active {
+      transform: translateX(0);
+   }
+</style>
+
+<!-- class="bg-gradient-to-r from-white/90 md:from-white/0 dark:from-secondary/80 md:dark:from-secondary/0  via-primary/60 dark:via-secondary/60 to-primary/0 dark:to-secondary/0   -->
+<div
+   transition:persist
+   id="drawer-contact"
+   class="bg-primary md:bg-primary md:bg-transparent max-w- dark:bg-secondary/80 hover:bg-secondary/50 dark:hover:bg-secondary/50 dark:text-primary md:dark:bg-transparent md:dark:hover:bg-gray-800 overflow-hidden fixed top-0 left-0 z-50 h-screen transition-transform -translate-x-full flex flex-row w-[100vw] max-w-[100vw] md:max-w-fit md:w-[790px] min-w-[90vw] overflow-x-visible overflow-y-hidden md:min-w-[100vw] pointer-events-none"
+   tabindex="-1"
+   aria-labelledby="drawer-contact-label"
+>
+   <article class="">
+      <!-- hide contact us component -->
+      <button
+         type="button"
+         class="btnCloseMenuCotizar z-50 pointer-events-auto text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white"
+      >
+         <svg
+            class="w-3 h-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+         >
+            <path
+               stroke="currentColor"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               stroke-width="2"
+               d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"></path>
+         </svg>
+         <span class="sr-only">Close menu</span>
+      </button>
+      <!-- fetch Data Menu cotizar -->
+      <div
+         class="font-extrabold text-2xl md:text-3xl text-[#3e3e3e] dark:text-white"
+      >
+         <MainNav client:load jsonData={jsonData} />
+      </div>
+   </article>
+</div>
+
+<script is:inline>
+   function showMenuCotizar() {
+      const isMdOrLarger = window.matchMedia("(min-width: 768px)").matches;
+
+      if (isMdOrLarger) {
+         const drawerContact = document.getElementById("drawer-contact");
+         drawerContact.style.transform = "translateX(0)";
+         drawerContact.classList.add("active");
+      }
+   }
+
+   function hideMenuCotizar() {
+      const drawerContact = document.getElementById("drawer-contact");
+      drawerContact.style.transform = "translateX(-100%)";
+      drawerContact.classList.remove("active");
+   }
+
+   function functionCloseMenu() {
+      const isMdOrLarger = window.matchMedia("(min-width: 768px)").matches;
+      const drawerContact = document.getElementById("drawer-contact");
+
+      // Verifica el desplazamiento vertical solo si estamos en una pantalla más grande
+      if (isMdOrLarger) {
+         const scrollY = window.scrollY || window.pageYOffset;
+         if (scrollY > window.innerHeight * 0.5) {
+            hideMenuCotizar();
+         }
+      } else {
+         // En móvil, cierra el menú sin verificar el desplazamiento vertical
+         hideMenuCotizar();
+      }
+   }
+
+   function onScroll() {
+      const isMdOrLarger = window.matchMedia("(min-width: 768px)").matches;
+      const drawerContact = document.getElementById("drawer-contact");
+
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (isMdOrLarger) {
+         // Si el desplazamiento es hacia abajo, oculta el menú
+         if (
+            scrollY > lastScrollTop &&
+            drawerContact.style.transform !== "translateX(-100%)"
+         ) {
+            hideMenuCotizar();
+         }
+
+         // Si el desplazamiento es hacia arriba y el menú está oculto, muéstralo
+         if (
+            scrollY < lastScrollTop &&
+            drawerContact.style.transform === "translateX(-100%)"
+         ) {
+            showMenuCotizar();
+         }
+      }
+      lastScrollTop = scrollY;
+   }
+
+   let lastScrollTop = 0;
+
+   // Obtén todos los elementos con la clase "btnCloseMenuCotizar"
+   const closeButtons = document.querySelectorAll(".btnCloseMenuCotizar");
+
+   // Itera sobre cada elemento y agrega el evento
+   closeButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+         // Llama a la funciónCloseMenu cuando se hace clic en el botón de cerrar
+         functionCloseMenu();
+      });
+   });
+
+   // Agrega un evento de desplazamiento para verificar automáticamente al desplazarse
+   document.addEventListener("scroll", onScroll);
+   document.addEventListener("astro:before-swap", showMenuCotizar());
+</script>
