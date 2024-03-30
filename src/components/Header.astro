@@ -36,7 +36,7 @@ const headerNavs = [
   }
 </style>
 
-<header
+<header transition:persist
   class="bg-white md:bottom-auto bottom-0 w-full fixed z-40 border-gray-200 dark:bg-gray-900 text-secondary dark:text-primary"
 >
   <div
@@ -213,22 +213,20 @@ const headerNavs = [
     });
   }
 
-  function turnAround() {
-   document.querySelector(".card").addEventListener("click",  () => {
-      card.classList.toggle("rotated");
-    });
-    
-  }
 
-  document.addEventListener('astro:page-load', () => {
-   
+
+  toggleShowNavMobil();    
    hiddeNavbar();
-   toggleShowNavMobil();   
    turnAround();  
- }, { once: false });
+
+  document.addEventListener('astro:page-load', () => {     
+   toggleShowNavMobil();    
+   hiddeNavbar();
+  
+ });
   document.addEventListener("astro:after-swap", () => {
     toggleShowNavMobil();
     hiddeNavbar();    
-    turnAround();
-  }, {once: false});
+   
+  });
 </script>

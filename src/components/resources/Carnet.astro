@@ -247,7 +247,7 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
   </div>
 </div>
 
-<script is:inline>
+<script >
   function turnAround() {
    document.querySelector(".card").addEventListener("click",  () => {
       card.classList.toggle("rotated");
@@ -255,10 +255,12 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
     
   }
 
+  turnAround();   
+
   document.addEventListener('astro:page-load', () => {   
     turnAround();   
- }, { once: false });
+ });
   document.addEventListener("astro:after-swap", () => {
     turnAround();    
-  }, { once: false });
+  });
 </script>
