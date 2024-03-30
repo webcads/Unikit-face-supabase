@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-import { fileURLToPath } from 'url';
 import react from '@astrojs/react';
 
 
@@ -17,7 +16,7 @@ export default defineConfig({
   ssr: true,
   integrations: [
     react({
-      include: ['**/react/*'],
+      content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     }),
     tailwind({
       applyBaseStyles: false,

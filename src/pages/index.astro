@@ -2,9 +2,9 @@
 import Layout from "../layouts/layout.astro"
 import clientData  from '../config/clientData.json'
 import '@/styles/globals.css'
-
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import MainPanel from "../components/MainPanel.astro"
+import SpeedDial from "../components/landing/SpeedDial.astro"
 
 import { supabase } from "../lib/supabase";
 
@@ -29,16 +29,13 @@ const catalogo = await catalogoPromise;
 // console.log("CATALOGOS FROM SUPABASE", catalogo);  
 ---
 
-<Layout  title={clientData.web_name} subtitle={clientData.subtitle} >			
-	<Covercomp	imgMobil="https://simca.unicauca.edu.co/simca/resources/images/background.png" imgPc="https://simca.unicauca.edu.co/simca/resources/images/background.png"></Covercomp>		
-	<Button>Hello World</Button>
-		<!-- <Avatar>
-		<AvatarImage src="https://github.com/shadcn.png" />
-		<AvatarFallback>CN</AvatarFallback>
-	  </Avatar> -->
-	  
-	<Stack arrayTiendas={tiendas}></Stack>			  
-   <Catalogo arrayProductos={catalogo[0].product} sectionTitle={catalogo[0].titulo} ></Catalogo>		
-	<Catalogo arrayProductos={catalogo[1].product} sectionTitle={catalogo[1].titulo} ></Catalogo>		
+<Layout  title={clientData.web_name} subtitle={clientData.subtitle} >	
+	<SpeedDial></SpeedDial>		
+	<!-- <Covercomp	imgMobil="https://simca.unicauca.edu.co/simca/resources/images/background.png" imgPc="https://simca.unicauca.edu.co/simca/resources/images/background.png"></Covercomp>			   -->
+	<MainPanel></MainPanel>		
+	
+	<!-- <Stack arrayTiendas={tiendas}></Stack>			   -->
+   <!-- <Catalogo arrayProductos={catalogo[0].product} sectionTitle={catalogo[0].titulo} ></Catalogo>		
+	<Catalogo arrayProductos={catalogo[1].product} sectionTitle={catalogo[1].titulo} ></Catalogo>		 -->
 	<CardContact></CardContact>	
 </Layout>

@@ -40,7 +40,7 @@
     "gh-pages": "^6.0.0",
     "git": "^0.1.5",
     "lucide-react": "^0.363.0",
-    "preact": "^10.19.3",
+    "preact": "^10.20.1",
     "prismjs": "^1.29.0",
     "qs": "^6.11.2",
     "react": "^18.2.0",
@@ -58,7 +58,7 @@
   "author": "castelll0009",
   "license": "ISC",
   "devDependencies": {
-    "@astrojs/preact": "^3.0.2",
+    "@astrojs/preact": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@iconify/tailwind": "^0.1.4",
     "@tailwindcss/typography": "^0.5.10",

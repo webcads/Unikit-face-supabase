@@ -8,11 +8,12 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   prefix: "tailwind.config.mjs",
-  theme: {
+  theme: {   
     container: {
       center: true,
       padding: "2rem",
       screens: {
+        'mobil': '340px',
         "2xl": "1400px",
       },
     },
@@ -28,9 +29,10 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#00ffff",
+          foreground: "#00ffff",
         },
+        third: "#00ffff",      
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",

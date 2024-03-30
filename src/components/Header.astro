@@ -1,8 +1,8 @@
 ---
 // Header.astro
 import clientData from "../config/clientData.json";
-import IconoCotizar from "../components/icons/IconoCotizar.astro";
-const headerNavs = [  
+import ThemeIcon from './ui/ThemeIcon.astro';
+const headerNavs = [
   { url: "/kit", label: "kit" },
   { url: "/perfil", label: "perfil" },
   { url: "/formatos", label: "formatos" },
@@ -26,78 +26,172 @@ const headerNavs = [
 
   /* Media query for mobile devices */
   @media (max-width: 768px) {
-
   }
 
   /* Media query for desktop devices */
   @media (min-width: 768px) {
-
+    header {
+      bottom: auto;
+    }
   }
 </style>
 
-<header class="bg-white bottom-0 md:bottom-auto fixed z-40 w-screen border-gray-200 dark:bg-gray-900 text-secondary dark:text-primary" >
-  <div class="max-w-screen  flex flex-wrap items-center justify-between mx-10  p-4">
+<header
+  class="bg-white md:bottom-auto bottom-0 w-full fixed z-40 border-gray-200 dark:bg-gray-900 text-secondary dark:text-primary"
+ >
+  <div
+    class="max-w-screen flex flex-wrap items-center justify-between mx-10 p-4"
+  >
     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <svg xmlns="http://www.w3.org/2000/svg" width="3em" height="3em" viewBox="0 0 20 20"><path fill="currentColor" d="M8.7 7A1.7 1.7 0 0 0 7 8.7A1.3 1.3 0 0 0 8.3 10h3.4A1.3 1.3 0 0 0 13 8.7A1.7 1.7 0 0 0 11.3 7zM8 8.7a.7.7 0 0 1 .7-.7h2.6a.7.7 0 0 1 .7.7a.3.3 0 0 1-.3.3H8.3a.3.3 0 0 1-.3-.3M10 2a2.5 2.5 0 0 0-2.5 2.5v.044A6.001 6.001 0 0 0 4 10v5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-5a6.001 6.001 0 0 0-3.5-5.456V4.5A2.5 2.5 0 0 0 10 2m5 10H5v-2a5 5 0 0 1 10 0zm-8 2.5a.5.5 0 0 0 1 0V13h7v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2h2zM10 4a6.05 6.05 0 0 0-1.466.18a1.5 1.5 0 0 1 2.932 0C10.996 4.063 10.506 4 10 4"/></svg>
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"> {clientData.web_name}</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="3em"
+        height="3em"
+        viewBox="0 0 20 20"
+        ><path
+          fill="currentColor"
+          d="M8.7 7A1.7 1.7 0 0 0 7 8.7A1.3 1.3 0 0 0 8.3 10h3.4A1.3 1.3 0 0 0 13 8.7A1.7 1.7 0 0 0 11.3 7zM8 8.7a.7.7 0 0 1 .7-.7h2.6a.7.7 0 0 1 .7.7a.3.3 0 0 1-.3.3H8.3a.3.3 0 0 1-.3-.3M10 2a2.5 2.5 0 0 0-2.5 2.5v.044A6.001 6.001 0 0 0 4 10v5a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-5a6.001 6.001 0 0 0-3.5-5.456V4.5A2.5 2.5 0 0 0 10 2m5 10H5v-2a5 5 0 0 1 10 0zm-8 2.5a.5.5 0 0 0 1 0V13h7v2a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-2h2zM10 4a6.05 6.05 0 0 0-1.466.18a1.5 1.5 0 0 1 2.932 0C10.996 4.063 10.506 4 10 4"
+        ></path></svg
+      >
+      <span
+        class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+      >
+        {clientData.web_name}</span
+      >
     </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-        </svg>
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0    dark:border-gray-700">
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+      >
         <li>
-          <a href="/" class="block py-2 px-3 text-secondary  rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><rect width="4" height="8" x="10" y="13" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.9s" dur="0.15s" values="0;0.3"/></rect><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path stroke-dasharray="15" stroke-dashoffset="15" d="M4.5 21.5h15"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="15;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M4.5 21.5V8M19.5 21.5V8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.2s" dur="0.2s" values="15;0"/></path><path stroke-dasharray="24" stroke-dashoffset="24" d="M9.5 21.5V12.5H14.5V21.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="24;0"/></path><path stroke-dasharray="30" stroke-dashoffset="30" stroke-width="2" d="M2 10L12 2L22 10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.5s" dur="0.4s" values="30;0"/></path></g></svg>
-        </a>
+          <a
+            href="/"
+            class="block py-2 px-3 text-third rounded md:bg-transparent md:text-secondary md:p-0 dark:text-white"
+            aria-current="page"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1.5em"
+              height="1.5em"
+              viewBox="0 0 24 24"
+              ><rect
+                width="4"
+                height="8"
+                x="10"
+                y="13"
+                fill="currentColor"
+                fill-opacity="0"
+                ><animate
+                  fill="freeze"
+                  attributeName="fill-opacity"
+                  begin="0.9s"
+                  dur="0.15s"
+                  values="0;0.3"></animate></rect
+              ><g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path
+                  stroke-dasharray="15"
+                  stroke-dashoffset="15"
+                  d="M4.5 21.5h15"
+                  ><animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    dur="0.2s"
+                    values="15;0"></animate></path
+                ><path
+                  stroke-dasharray="15"
+                  stroke-dashoffset="15"
+                  d="M4.5 21.5V8M19.5 21.5V8"
+                  ><animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.2s"
+                    dur="0.2s"
+                    values="15;0"></animate></path
+                ><path
+                  stroke-dasharray="24"
+                  stroke-dashoffset="24"
+                  d="M9.5 21.5V12.5H14.5V21.5"
+                  ><animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.4s"
+                    dur="0.4s"
+                    values="24;0"></animate></path
+                ><path
+                  stroke-dasharray="30"
+                  stroke-dashoffset="30"
+                  stroke-width="2"
+                  d="M2 10L12 2L22 10"
+                  ><animate
+                    fill="freeze"
+                    attributeName="stroke-dashoffset"
+                    begin="0.5s"
+                    dur="0.4s"
+                    values="30;0"></animate></path
+                ></g
+              ></svg
+            >
+          </a>
         </li>
-        {headerNavs.map(nav => (
-          <li>
-            <a href={nav.url} class="block py-2 capitalize px-3 text-secondary  rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">
-              {nav.label}
-            </a>
-          </li>
-        ))}
-          
-<!-- dark toggle button -->
-<button
-id="theme-toggle"
-type="button"
-class="p-2 md:-mt-2 ml-2 bg-transparent text-secondary dark:text-white dark:text-gray-400 focus:outline-none focus:ring-0 dark:focus:outline-none rounded-lg text-sm"
->
-<svg
-  id="theme-toggle-dark-icon"
-  class="hidden w-5 h-5"
-  fill="currentColor"
-  viewBox="0 0 20 20"
-  xmlns="http://www.w3.org/2000/svg"
-  ><path
-    d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-  ></path></svg
->
-<svg
-  id="theme-toggle-light-icon"
-  class="hidden w-5 h-5"
-  fill="currentColor"
-  viewBox="0 0 20 20"
-  xmlns="http://www.w3.org/2000/svg"
-  ><path
-    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-    fill-rule="evenodd"
-    clip-rule="evenodd"></path></svg
->
-</button>
-        </li>
+        {
+          headerNavs.map((nav) => (
+            <li>
+              <a
+                href={nav.url}
+                class="block py-2 capitalize px-3 text-secondary  rounded md:bg-transparent  md:p-0 dark:text-white"
+                aria-current="page"
+                style="    text-transform: capitalize;"
+              >
+                {nav.label}
+              </a>
+            </li>
+          ))
+        }        
+        <!-- dark mode toggle button -->
+        <ThemeIcon   transition:persist/>
       </ul>
     </div>
   </div>
 </header>
 
 
+        <!-- Dark Theme  funtionality -->
+  
 
+<script>
+  document.addEventListener('astro:after-swap', () => {
+    localStorage.theme === 'dark'
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark");
+  });
+</script>
 
 <script is:inline>
   function hiddeNavbar() {
@@ -127,5 +221,3 @@ class="p-2 md:-mt-2 ml-2 bg-transparent text-secondary dark:text-white dark:text
   });
   document.addEventListener("astro:after-swap", hiddeNavbar);
 </script>
-
-

@@ -23,6 +23,7 @@ module.exports = {
         'bermuda': '#78dcca',
       },
       screens: {
+        'mb': '340px',	
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
   
