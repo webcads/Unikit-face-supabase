@@ -257,7 +257,7 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
 
   turnAround();   
 
-  document.addEventListener('astro:page-load', () => {   
+  window.addEventListener("DOMContentLoaded", function () {
     turnAround();   
  });
   document.addEventListener("astro:after-swap", () => {

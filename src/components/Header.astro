@@ -214,16 +214,16 @@ const headerNavs = [
   }
 
 
-
+  window.addEventListener("DOMContentLoaded", function () {
   toggleShowNavMobil();    
-   hiddeNavbar();
-   turnAround();  
+  hiddeNavbar();  
+  }); 
 
-  document.addEventListener('astro:page-load', () => {     
-   toggleShowNavMobil();    
-   hiddeNavbar();
+//   document.addEventListener('astro:page-load', () => {     
+//    toggleShowNavMobil();    
+//    hiddeNavbar();
   
- });
+//  });
   document.addEventListener("astro:after-swap", () => {
     toggleShowNavMobil();
     hiddeNavbar();    
