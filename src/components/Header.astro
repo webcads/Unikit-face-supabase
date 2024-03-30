@@ -213,13 +213,22 @@ const headerNavs = [
     });
   }
 
+  function turnAround() {
+   document.querySelector(".card").addEventListener("click",  () => {
+      card.classList.toggle("rotated");
+    });
+    
+  }
+
   document.addEventListener('astro:page-load', () => {
    
    hiddeNavbar();
-   toggleShowNavMobil();     
+   toggleShowNavMobil();   
+   turnAround();  
  }, { once: false });
   document.addEventListener("astro:after-swap", () => {
     toggleShowNavMobil();
     hiddeNavbar();    
+    turnAround();
   }, {once: false});
 </script>
