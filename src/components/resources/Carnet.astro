@@ -247,7 +247,7 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
   </div>
 </div>
 
-<script >
+<script is:inline >
   function turnAround() {
    document.querySelector(".card").addEventListener("click",  () => {
       card.classList.toggle("rotated");
