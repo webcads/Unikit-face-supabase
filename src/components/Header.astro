@@ -6,7 +6,7 @@ const headerNavs = [
   { url: "/kit", label: "kit" },
   { url: "/carnetdigital", label: "carnet digital" },
   { url: "/formatos", label: "formatos" },
-  { url: "/eventos", label: "eventos" },
+  { url: "/links", label: "links" },
   { url: "/dev", label: "dev" },
   // {"url": "/gallery", "label": "Gallery"},
   // {"url": "/testimonials", "label": "Testimonials"}
@@ -213,6 +213,13 @@ const headerNavs = [
     });
   }
 
-  document.addEventListener("astro:page-load", toggleShowNavMobil, hiddeNavbar);
-  document.addEventListener("astro:after-swap",toggleShowNavMobil,hiddeNavbar);
+  document.addEventListener('astro:page-load', () => {
+   
+   hiddeNavbar();
+   toggleShowNavMobil();     
+ }, { once: false });
+  document.addEventListener("astro:after-swap", () => {
+    toggleShowNavMobil();
+    hiddeNavbar();    
+  }, {once: false});
 </script>

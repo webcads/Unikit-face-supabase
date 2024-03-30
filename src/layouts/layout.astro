@@ -94,3 +94,57 @@ const { title, subtitle, description } = Astro.props;
 
     </body>
 </html>
+
+
+<script is:inline >
+
+    function hiddeNavbar() {
+      var header = document.querySelector("header");
+      var lastScrollTop = 0;
+  
+      window.addEventListener("scroll", function () {
+        var st = window.pageYOffset || document.documentElement.scrollTop;
+        var isMobile = window.innerWidth <= 768;
+  
+        if (st > lastScrollTop) {
+          // Desplazamiento hacia abajo
+          header.style.transform = isMobile
+            ? "translateY(100%)"
+            : "translateY(-100%)";
+        } else {
+          // Desplazamiento hacia arriba
+          header.style.transform = isMobile ? "translateY(0)" : "translateY(0%)";
+        }
+  
+        lastScrollTop = st;
+      });
+    }
+  
+    function toggleShowNavMobil() {
+      // Agregar un event listener para el clic en el botón de alternancia del menú móvil
+      var navbarToggle = document.getElementById("mobile-menu-toggle"); // Seleccionar el botón por su id
+      navbarToggle.addEventListener("click", function () {
+        var navbar = document.getElementById("navbar-default");
+        navbar.classList.toggle("hidden"); // Alternar la clase 'hidden' para mostrar/ocultar el menú});
+      });
+    }
+    function turnAround() {
+      const card = document.querySelector(".card");
+  
+      function clickRotate() {
+        card.classList.toggle("rotated");
+      }
+      card.addEventListener("click", clickRotate);
+    }
+    document.addEventListener('astro:page-load', () => {
+     
+     hiddeNavbar();
+     toggleShowNavMobil();
+     turnAround();
+   }, { once: false });
+    document.addEventListener("astro:after-swap", () => {
+      toggleShowNavMobil();
+      hiddeNavbar();
+      turnAround();
+    }, {once: false});
+  </script>
