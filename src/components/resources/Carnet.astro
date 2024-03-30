@@ -195,7 +195,7 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
         >
           <img
             class="mb-3 block rounded-xs shadow-lg"
-            src="https://i.pinimg.com/564x/f8/f8/2d/f8f82dbfc0b9ffeacc811024ac9882e5.jpg"
+            src={foto}
             alt="person image"
             style="width: 2.8cm; height:3.7cm; margin: 20px"
           />
@@ -206,10 +206,10 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
         class="flex-1 h-[30%] overflow-hidden flex flex-col w-full"
         style="height: 30%;"
       >
-        <h5 class="mb-0 text-xl capitalize">Jane Doe</h5>
-        <h5 class="mb-0 text-xl uppercase">Jobs galviz</h5>
-        <span class="text-sm text-black">123456789</span>
-        <span class="text-sm text-black">RH. A+</span>
+        <h5 class="mb-0 text-xl capitalize">{nombres}</h5>
+        <h5 class="mb-0 text-xl uppercase">{apellidos}</h5>
+        <span class="text-sm text-black">{identificacion}</span>
+        <span class="text-sm text-black">RH. {tipo_sangre}</span>
         <div>
           <span class="flex flex-row" style="background:#d53b00; ">
             <div class="flex-1 flex flex-row" style="max-width: 20%;">
@@ -225,7 +225,7 @@ const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props
                 class="pt-2 pb-2 pl-2 pr-2 text-xl uppercase w-full text-black font-bold"
                 style="text-align: center; background:#d53b00; "
               >
-                Estudiante
+                {rol}
               </h6>
             </div>
             <div class="flex-1 flex flex-row" style="max-width: 20%;"></div>
