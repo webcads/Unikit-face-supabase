@@ -4,9 +4,7 @@ import Carnet from "../components/resources/Carnet.astro";
 ---
 
 <style id="INLINE_PEN_STYLESHEET_ID">
-  body {
-    background: linear-gradient(to right, #141e30, #243b55);
-  }
+
 
   h1,
   h2,
@@ -48,8 +46,8 @@ import Carnet from "../components/resources/Carnet.astro";
     transform: rotateY(-180deg);
   }
   .card-contents {
-    width: 100%;
-    height: 100%;
+    width: 7.5cm;
+    height: 11.5cm;
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -123,7 +121,7 @@ import Carnet from "../components/resources/Carnet.astro";
         >
           <!-- header -->
           <div
-            class="flex-1 w-full overflow-hidden relative"
+            class="flex-1 w-full  relative"
             style="max-height: 106px; "
           >
             <div
@@ -180,14 +178,26 @@ import Carnet from "../components/resources/Carnet.astro";
               </div>
             </div>
             <span
-              class="w-full flex flex-row gap-5 p-2 justify-start"
-              style="min-width: 100%; background: #1d3585; padding-top: 3px; padding-left: 20px;"
+              class="w-full flex flex-row gap-5 p-2  justify-start"
+              style="min-width: 100%; background: #1d3585; padding-top: 3px; padding-left: 30px; height: 70px;
+              background: linear-gradient(88deg, #1A3484, #1a3485 40%, #1a348599);"
             >
+            <span class="absolute " 
+            style="min-width: 120px;
+            height: 90px;
+            background: #1d3585;
+            position: absolute;
+            z-index: 0;
+            margin-left: -24px;
+            margin-top: -14px;
+            border-radius: 100%;"
+            >
+          </span>
               <img
                 class=""
                 src="https://simca.unicauca.edu.co/simca/resources/images/logo.png"
                 alt=""
-                style="filter: invert(0); width: 140px;"
+                style="filter: invert(0); width: 160px; padding-left: 1px;"
               />
             </span>
           </div>
