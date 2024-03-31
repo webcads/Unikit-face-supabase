@@ -19,7 +19,7 @@
     :global(.dark) .moon { fill: white; }
   </style>
 
-<script >    
+<script is:inline >    
 function  setDarkMode(){
     const theme = (() => {
       if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -49,6 +49,8 @@ function  setDarkMode(){
   
     document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
     }
-    document.addEventListener('astro:page-load', setDarkMode);
+
+    window.addEventListener("DOMContentLoaded", function () {setDarkMode();});
+    // document.addEventListener('astro:page-load', setDarkMode);
     document.addEventListener('astro:after-swap', setDarkMode);
   </script>
