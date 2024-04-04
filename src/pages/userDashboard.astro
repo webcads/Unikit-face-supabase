@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/layout.astro"
+import clientData  from '../config/clientData.json'
+import '@/styles/globals.css'
+import { Button } from "@/components/ui/button"
+import MainPanel from "../components/MainPanel.astro"
+import SpeedDial from "../components/landing/SpeedDial.astro"
+
+import { supabase } from "../lib/supabase";
+
+
+// funciones
+// Importa la función
+import { getCatalogosFromSupabase } from "../config/servicesSupabase/catalogoSupabase"
+import { getTiendasFromSupabase } from "../config/servicesSupabase/getTiendas"
+//components
+import Covercomp from "../components/landing/Cover.astro"
+import CardContact from "../components/pages/CardContact.astro";
+import Catalogo from "../components/Catalogo.astro"
+// import listaTiendas from "../config/listaTiendas.json"  This weas a file Json created  to create  the fucntionaliti before to coneect to data base
+import Stack from "../components/landing/Stack.astro";
+
+const tiendasPromise = getTiendasFromSupabase();
+const tiendas = await tiendasPromise; // Esperar a que se resuelva la promesa
+// console.log("TIENDAS FROM SUPABASE", tiendas);
+  
+const catalogoPromise = getCatalogosFromSupabase();  
+const catalogo = await catalogoPromise;   
+// console.log("CATALOGOS FROM SUPABASE", catalogo);  
+---
+
+<Layout  title={clientData.web_name} subtitle={clientData.subtitle} >	
+	<SpeedDial></SpeedDial>		
+	<!-- <Covercomp	imgMobil="https://simca.unicauca.edu.co/simca/resources/images/background.png" imgPc="https://simca.unicauca.edu.co/simca/resources/images/background.png"></Covercomp>			   -->
+	<MainPanel></MainPanel>		
+	
+	<!-- <Stack arrayTiendas={tiendas}></Stack>			   -->
+   <!-- <Catalogo arrayProductos={catalogo[0].product} sectionTitle={catalogo[0].titulo} ></Catalogo>		
+	<Catalogo arrayProductos={catalogo[1].product} sectionTitle={catalogo[1].titulo} ></Catalogo>		 -->
+	<CardContact></CardContact>	
+</Layout>
