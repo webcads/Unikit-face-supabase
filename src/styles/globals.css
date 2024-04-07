@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html.dark {
-  background-color: transparent;
+  background-color: transparent;  
   color: #fff;
 }
 
@@ -11,7 +11,7 @@ html.dark {
   color: #fff;
 }
 
-@layer base {
+/* @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -82,4 +82,4 @@ html.dark {
   body {
     @apply tailwind.config.mjsbg-background tailwind.config.mjstext-foreground;
   }
-}
+} */
