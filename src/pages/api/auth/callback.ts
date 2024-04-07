@@ -1,3 +1,4 @@
+// callback.ts
 import type { APIRoute } from "astro";
 import { supabase } from "../../../lib/supabase";
 
@@ -15,6 +16,11 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
   }
 
   const { access_token, refresh_token } = data.session;
+  const { user } = data;
+   // Validar si el correo electrónico tiene la extensión @unicauca.edu.co
+   if (user.email && !user.email.endsWith('@unicauca.edu.co')) {
+    return new Response("Solo se permiten correos electrónicos de la Universidad del Cauca (@unicauca.edu.co)", { status: 403 });
+  }
 
   cookies.set("sb-access-token", access_token, {
     path: "/",
@@ -23,5 +29,5 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
     path: "/",
   });
 
-  return redirect("/dashboard");
+  return redirect("/api/dashboard");
 };

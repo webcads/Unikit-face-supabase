@@ -1,14 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-// const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
     darkMode: "class",
     theme: {
       colors: {
         'primary': "#ffffff",
         black: "#000000",
-        secondary: "black",
-        third: "#00ffff",      
+        secondary: "#263755",        
+        background: "#263755", 
+        amarillo: "#f6a500",
+        azul: "#1d3585",
+        rojo: "#d53b00", 
+        third: "rgb(145 177 83);",    
+        fourth: "#d0e3b1", 
         red: "red",
         green: "green",        
         transparent: 'transparent',
@@ -23,7 +28,6 @@ module.exports = {
         'bermuda': '#78dcca',
       },
       screens: {
-        'mb': '340px',	
         'sm': '640px',
         // => @media (min-width: 640px) { ... }
   

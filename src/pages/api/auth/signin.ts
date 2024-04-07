@@ -1,3 +1,4 @@
+// Signin.ts
 import type { APIRoute } from "astro";
 import { supabase } from "../../../lib/supabase";
 import type { Provider } from "@supabase/supabase-js";
@@ -7,6 +8,10 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const provider = formData.get("provider")?.toString();
+   // Validar si el correo electrónico tiene la extensión @unicauca.edu.co
+   if (email && !email.endsWith('@unicauca.edu.co')) {
+    return new Response("Solo se permiten usuario con correos electrónicos de la Universidad del Cauca (@unicauca.edu.co)", { status: 400 });
+  }
 
   const validProviders = ["google", "github", "discord"];
 
