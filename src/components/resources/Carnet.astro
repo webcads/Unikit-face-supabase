@@ -9,6 +9,8 @@ interface Props {
 }
 const {foto, nombres, apellidos, identificacion, tipo_sangre, rol} = Astro.props;
 let rojo = "#d53b00";
+// Convierte el nombre a minúsculas
+const nombresLowerCase = nombres.toLowerCase();
 ---
 
 <style id="INLINE_PEN_STYLESHEET_ID">
@@ -159,7 +161,7 @@ let rojo = "#d53b00";
         class="flex-1 h-[30%] overflow-hidden flex flex-col w-full"
         style="height: 30%;"
       >
-        <h5 class="mb-0 text-xl capitalize">{nombres}</h5>
+      <h5 class="mb-0 text-xl  capitalize">{nombresLowerCase}</h5>
         <h5 class="mb-0 text-xl uppercase">{apellidos}</h5>
         <span class="text-sm text-black">{identificacion}</span>
         <span class="text-sm text-black">RH. {tipo_sangre}</span>
@@ -203,6 +205,7 @@ let rojo = "#d53b00";
 </div>
 
 <script is:inline >
+  
  const card = document.querySelector('.card');
 
 function clickRotate() {
