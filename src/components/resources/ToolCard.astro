@@ -1,0 +1,104 @@
+<style>
+    /* Define la animación de levitación */
+    @keyframes levitate {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-4px); /* Ajusta la distancia de levitación */
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Aplica la animación a la imagen */
+    .floating-effect {
+        animation: levitate 3s infinite; /* Ajusta la duración de la animación según tu preferencia */
+    }
+
+    @media (min-width: 768px) {
+        .flex-container {
+            align-items: flex-start;
+        }
+        .md_text-start {
+            text-align: start;
+        }
+        .md_items-start{
+            align-items: start;
+        }
+    }
+</style>
+
+<a href="/homologacion" class="flex w-[fit] md:w-[300px] flex-col md:items-start md_items-start items-center  bg-white border border-gray-200 rounded-lg shadow md:flex-row  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <span class="p-2 dark:text-white text-xs">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="5em"
+            height="5em"
+            viewBox="0 0 24 24"
+            ><g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><g stroke-width="1"
+                    ><path
+                        stroke-dasharray="66"
+                        stroke-dashoffset="66"
+                        d="M12 3H19V21H5V3H12Z"
+                        ><animate
+                            fill="freeze"
+                            attributeName="stroke-dashoffset"
+                            dur="0.6s"
+                            values="66;0"></animate></path
+                    ><path
+                        stroke-dasharray="8"
+                        stroke-dashoffset="8"
+                        d="M9 13H15"
+                        ><animate
+                            fill="freeze"
+                            attributeName="stroke-dashoffset"
+                            begin="1s"
+                            dur="0.2s"
+                            values="8;0"></animate></path
+                    ><path
+                        stroke-dasharray="8"
+                        stroke-dashoffset="8"
+                        d="M12 10V16"
+                        ><animate
+                            fill="freeze"
+                            attributeName="stroke-dashoffset"
+                            begin="1.2s"
+                            dur="0.2s"
+                            values="8;0"></animate></path
+                    ></g
+                ><path
+                    stroke-dasharray="12"
+                    stroke-dashoffset="12"
+                    d="M14.5 3.5V6.5H9.5V3.5"
+                    ><animate
+                        fill="freeze"
+                        attributeName="stroke-dashoffset"
+                        begin="0.7s"
+                        dur="0.2s"
+                        values="12;0"></animate></path
+                ></g
+            ></svg
+        >
+    </span>
+
+    <div class="flex flex-col justify-between p-2 md:p-4 leading-normal">
+        <h5
+            class="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+            Homologar Materias
+        </h5>
+        <p
+            class="mb-3 font-normal text-gray-700 dark:text-gray-400"
+        >
+            Aqui podras llenar tu formulario de peticion con las
+            asignatuiras que deseas homologar.
+        </p>
+    </div>
+</a>

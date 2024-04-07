@@ -2,6 +2,7 @@
 import Layout from "../../layouts/layout.astro";
 import Base from "../../layouts/Base.astro"
 import { supabase } from "../../lib/supabase";
+import Dashboard from "../../components/Dashboard.astro";
 
 const { cookies, redirect } = Astro;
 
@@ -31,12 +32,13 @@ if (error) {
 const email = data?.user?.email;
 ---
 <Layout title="dashboard">
-  <section class="h-[100vh] flex flex-col justify-center items-center" style="height: 100vh; padding-top: 100px">
-    <h1>Welcome {email}</h1>
-    <p>We are happy to see you here</p>
-    <form action="/api/auth/signout">
-      <button type="submit">Sign out</button>
-    </form>
-  </section>
+  <h1>Welcome {email}</h1>
+     
+  <p>We are happy to see you here</p>
+  <Dashboard/>
+  <form action="/api/auth/signout">
+    <button type="submit">Sign out</button>
+  </form>
+  
  
 </Layout>
