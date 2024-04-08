@@ -22,7 +22,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
         redirectTo:
          import.meta.url
         ? "http://localhost:4321/api/auth/callback"
-        : "https://lucky-meringue-8b3000.netlify.app/api/auth/callback",
+        : "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
         // "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
       },
     });
