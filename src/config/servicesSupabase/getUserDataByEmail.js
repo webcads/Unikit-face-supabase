@@ -6,7 +6,7 @@ export async function getUserDataByEmail(email) {
         let { data: usuario, error } = await supabase
             .from('usuario')
             .select('*')
-            .eq('id', email)
+            .eq('correo_unicauca', email)
             .single();
         
         if (error) {
