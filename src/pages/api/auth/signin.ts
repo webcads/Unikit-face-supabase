@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider as Provider,
       options: {
-        redirectTo: "https://vhbutrkzjibajrwtofhm.supabase.co/api/auth/callback"
+        redirectTo: "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
       },
     });
 
