@@ -19,6 +19,7 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
   const { access_token, refresh_token } = data.session;
   const { user } = data;
 
+  console.log("callback "+ user.email)
   // Validar si el correo electrónico tiene la extensión @unicauca.edu.co
   if (user.email && !user.email.endsWith('@unicauca.edu.co')) {
     return new Response("Solo se permiten correos electrónicos de la Universidad del Cauca (@unicauca.edu.co)", { status: 403 });
