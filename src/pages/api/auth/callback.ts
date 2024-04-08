@@ -83,24 +83,24 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
     } else {
       console.log("Usuario insertado correctamente en la tabla usuario.");
 
-      // Insertar datos del carnet del usuario en la tabla carnet
-      const { data: carnetData, error: carnetInsertError } = await supabase
-        .from('carnet')
-        .insert([
-          {
-            foto: user.user_metadata?.picture, // Asegúrate de tener un campo para la foto del carnet en user_metadata
-            usuario_id: user.id, // Usa el ID del usuario insertado anteriormente
+      // // Insertar datos del carnet del usuario en la tabla carnet
+      // const { data: carnetData, error: carnetInsertError } = await supabase
+      //   .from('carnet')
+      //   .insert([
+      //     {
+      //       foto: user.user_metadata?.picture, // Asegúrate de tener un campo para la foto del carnet en user_metadata
+      //       usuario_id: user.id, // Usa el ID del usuario insertado anteriormente
             
-          }
-        ]);
+      //     }
+      //   ]);
 
-      if (carnetInsertError) {
-        console.error("Error al insertar los datos del carnet:", carnetInsertError);
-        // Manejar el error apropiadamente
-        return new Response("Error al insertar los datos del carnet", { status: 500 });
-      } else {
-        console.log("Carnet insertado correctamente en la tabla carnet.");
-      }
+      // if (carnetInsertError) {
+      //   console.error("Error al insertar los datos del carnet:", carnetInsertError);
+      //   // Manejar el error apropiadamente
+      //   return new Response("Error al insertar los datos del carnet", { status: 500 });
+      // } else {
+      //   console.log("Carnet insertado correctamente en la tabla carnet.");
+      // }
     }
   }
 

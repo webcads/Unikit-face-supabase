@@ -31,7 +31,7 @@ if (error) {
 
 const email = data?.user?.email;
 
-const usuarioPromise = getUserDataByEmail("castell@unicauca.edu.co");
+const usuarioPromise = getUserDataByEmail(email);
 const usuario = await usuarioPromise; // Esperar a que se resuelva la promesa
 console.log("DATOS USARIO FROM SUPABASE", usuario);
 ---
