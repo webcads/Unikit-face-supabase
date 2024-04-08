@@ -2,7 +2,6 @@
 import type { APIRoute } from "astro";
 import { supabase } from "../../../lib/supabase";
 
-
 export const GET: APIRoute = async ({ url, cookies, redirect }) => {
   const authCode = url.searchParams.get("code");
 
@@ -90,7 +89,8 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
         .insert([
           {
             foto: user.user_metadata?.picture, // Asegúrate de tener un campo para la foto del carnet en user_metadata
-            usuario_id: user.id, // Usa el ID del usuario insertado anteriormente            
+            usuario_id: user.id, // Usa el ID del usuario insertado anteriormente
+            
           }
         ]);
 
