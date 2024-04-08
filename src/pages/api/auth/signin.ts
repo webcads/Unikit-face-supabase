@@ -20,11 +20,11 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
       provider: provider as Provider,
       options: {
         redirectTo:
-        "http://localhost:4321/api/auth/callback"
+        // "http://localhost:4321/api/auth/callback"
         //  import.meta.url
         // ? "http://localhost:4321/api/auth/callback"
         // : "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
-        // "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
+        "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
       },
     });
 
