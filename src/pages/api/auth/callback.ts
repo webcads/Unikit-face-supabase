@@ -27,9 +27,14 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
 
   cookies.set("sb-access-token", access_token, {
     path: "/",
+    secure: true,
+    httpOnly: true,
+
   });
   cookies.set("sb-refresh-token", refresh_token, {
     path: "/",
+    secure: true,
+    httpOnly: true,
   });
   
   // Mostrar metadatos del usuario por consola
