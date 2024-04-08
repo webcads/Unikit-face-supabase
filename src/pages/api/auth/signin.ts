@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const provider = formData.get("provider")?.toString();
    // Validar si el correo electrónico tiene la extensión @unicauca.edu.co
    if (email && !email.endsWith('@unicauca.edu.co')) {
-    return new Response("Solo se permiten usuario con correos electrónicos de la Universidad del Cauca (@unicauca.edu.co)", { status: 400 });
+    return new Response("Solo se permiten correos electrónicos de la Universidad del Cauca (@unicauca.edu.co)", { status: 400 });
   }
 
   const validProviders = ["google", "github", "discord"];
@@ -19,7 +19,8 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider as Provider,
       options: {
-        redirectTo: "https://vhbutrkzjibajrwtofhm.supabase.co/auth/v1/callback"
+        // redirectTo: "http://localhost:4321/api/auth/callback"
+        redirectTo: "https://lucky-meringue-8b3000.netlify.app/api/auth/callback"
       },
     });
 
