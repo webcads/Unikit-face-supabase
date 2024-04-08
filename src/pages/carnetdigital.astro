@@ -26,12 +26,12 @@ if (error) {
     path: "/",
   });
 
-  return redirect("/carnetdigital");
+  return redirect("/api/");
 }
 
 const email = data?.user?.email;
 
-const usuarioPromise = getUserDataByEmail(email);
+const usuarioPromise = getUserDataByEmail("castell@unicauca.edu.co");
 const usuario = await usuarioPromise; // Esperar a que se resuelva la promesa
 console.log("DATOS USARIO FROM SUPABASE", usuario);
 ---
@@ -46,7 +46,7 @@ console.log("DATOS USARIO FROM SUPABASE", usuario);
   >
   
     <h1 class="text-secondary dark:text-white">Carnet Digital Unicauca</h1>
-    <h2>{email}</h2>
+    <!-- <h2>{email}</h2> -->
    
             <Carnet foto={usuario.picture}
              nombres={usuario.nombres} 
