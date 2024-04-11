@@ -11,11 +11,14 @@ import solid from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
+   site: 'https://lucky-meringue-8b3000.netlify.app',
+   output: 'server',  
+   adapter: netlify(),
   experiments: {
     react: true,
   },
-  output: 'server',  
-  adapter: netlify({ edgeMiddleware: true}),
+ 
+ 
   ssr: true,
   integrations: [ solid({
     include: ['**/solid/*', '**/node_modules/@suid/material/**'],
@@ -27,7 +30,7 @@ export default defineConfig({
      applyBaseStyles: true,
   }
   )],
-  site: 'https://castelll0009.github.io',
+ 
   base: ''
 }
 

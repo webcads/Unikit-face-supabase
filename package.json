@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^2.0.3",
-    "@astrojs/netlify": "^4.1.0",
+    "@astrojs/netlify": "^5.2.0",
     "@astrojs/node": "^7.0.4",
     "@astrojs/react": "^3.0.9",
     "@astrojs/renderer-react": "^0.5.0",
